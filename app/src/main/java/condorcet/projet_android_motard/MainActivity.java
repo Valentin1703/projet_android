@@ -1,6 +1,7 @@
 package condorcet.projet_android_motard;
 
 import android.content.Context;
+import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.support.v7.app.AppCompatActivity;
@@ -79,9 +80,18 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void clickEnregistrer(View v) {
-
-            Log.i("BOUTON CLICK  " , "" + longitude + " ---- " + latitude);
-
+            if(onstart){
+                try{
+                    Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                    Log.i("ONSTART BOUTON CLICK", " " + location.getLatitude() + " " + location.getLongitude());
+                }catch (SecurityException e){
+                    e.printStackTrace();
+                }
+                onstart = false;
+            }
+            else {
+                Log.i("BOUTON CLICK  ", "" + longitude + " ---- " + latitude);
+            }
     }
 
     LocationListener getLocationListener(){
@@ -89,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onLocationChanged(android.location.Location location) {
-
+                latitude = location.getLatitude();
                 longitude = location.getLongitude();
                 final Zone z = new Zone(0, 0, 0, longitude, latitude);
 
