@@ -33,6 +33,11 @@ public class MainActivity extends AppCompatActivity {
         inscription = (Button) findViewById(R.id.btn_inscription);
         connexion = (Button) findViewById(R.id.btn_menu_connexion);
         enregistrer = (Button) findViewById(R.id.btn_save_gps);
+
+        final CheckAutorisations checkPermissions = new CheckAutorisations(this);
+        if(!checkPermissions.hasPermissions()){
+            checkPermissions.askPermissions();
+        }
     }
 
 
@@ -52,10 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickEnregistrer (View v)
     {
-        final CheckAutorisations checkPermissions = new CheckAutorisations(this);
-        if(!checkPermissions.hasPermissions()){
-            checkPermissions.askPermissions();
-        }
+
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         ArrayList<String> names =(ArrayList<String>) locationManager.getProviders(true);
