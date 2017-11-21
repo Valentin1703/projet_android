@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="condorcet.projet_android_motard">
+    <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- permission la géolocalisation (par GPS, donc) -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- permission localisation par wifi -->
 
