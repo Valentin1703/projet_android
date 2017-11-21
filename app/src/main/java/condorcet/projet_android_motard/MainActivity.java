@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
     private LocationManager locationManager;
     private Zone zone;
 
-    double longitude;
-    double latitude;
+    float longitude;
+    float latitude;
     boolean onstart = true;
 
     @Override
@@ -86,8 +86,10 @@ public class MainActivity extends AppCompatActivity {
             if(onstart){
                 try{
                     Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-                    Log.i("ONSTART BOUTON CLICK", " " + location.getLatitude() + " " + location.getLongitude());
-                    zone = new Zone(0, 0, 0, location.getLongitude(), location.getLatitude());
+                    float tmpLong = (float) location.getLongitude();
+                    float tmpLat = (float) location.getLatitude();
+                    Log.i("ONSTART BOUTON CLICK", " " + tmpLat + " " + tmpLong);
+                    zone = new Zone(0, 0, 0,tmpLat , tmpLong);
                 }catch (SecurityException e){
                     e.printStackTrace();
                 }
@@ -106,8 +108,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onLocationChanged(android.location.Location location) {
                 onstart = false;
-                latitude = location.getLatitude();
-                longitude = location.getLongitude();
+                latitude = (float) location.getLatitude();
+                longitude = (float) location.getLongitude();
             }
 
 
