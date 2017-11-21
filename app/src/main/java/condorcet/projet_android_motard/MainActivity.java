@@ -22,10 +22,12 @@ public class MainActivity extends AppCompatActivity {
     private LocationManager locationManager;
     private Zone zone;
 
+    double longitude;
+    double latitude;
+    boolean onstart = true;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -35,119 +37,84 @@ public class MainActivity extends AppCompatActivity {
         enregistrer = (Button) findViewById(R.id.btn_save_gps);
 
         final CheckAutorisations checkPermissions = new CheckAutorisations(this);
-        if(!checkPermissions.hasPermissions()){
+        if (!checkPermissions.hasPermissions()) {
             checkPermissions.askPermissions();
         }
 
-    }
-
-
-        public void clickInscription (View v)
-        {
-            Intent i = new Intent(MainActivity.this,MainActivity_inscription.class);
-            startActivity(i);
-        }
-
-        public void clickConnexion (View v)
-        {
-            Intent i = new Intent(MainActivity.this,MainActivity_connexion.class);
-            startActivity(i);
-
-        }
-
-
-    public void clickEnregistrer (View v)
-    {
-
-
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        ArrayList<String> names =(ArrayList<String>) locationManager.getProviders(true);
-        boolean gps=false;
+        ArrayList<String> names = (ArrayList<String>) locationManager.getProviders(true);
+        boolean gps = false;
 
-        for(String name : names) {
+        for (String name : names) {
 
-            if(name.equals(LocationManager.GPS_PROVIDER)) gps=true;
-            Log.d("position",name);
+            if (name.equals(LocationManager.GPS_PROVIDER)) gps = true;
+            Log.d("position", name);
         }
 
-        if(!gps) Toast.makeText(this,"service gps indisponible",Toast.LENGTH_LONG).show();
+        if (!gps) Toast.makeText(this, "service gps indisponible", Toast.LENGTH_LONG).show();
 
         else try {
 
             //NETWORK_PROVIDER utilise les antennes GSM et le mode COARSE
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 0, new LocationListener() {
-
-                @Override
-                public void onLocationChanged(android.location.Location location) {
-
-                    //if (location != null) {
-
-                    double longitude = location.getLongitude();
-                    double latitude = location.getLatitude();
-                    Toast.makeText(MainActivity.this, "Position signalée: longitude: " + longitude + "latitude " + latitude, Toast.LENGTH_SHORT).show();
-
-
-                    //}
-
-
-                   final Zone z = new Zone(0, 0, 0, longitude, latitude);
-
-
-
-
-
-
-                }
-
-
-
-
-
-
-
-
-
-
-                @Override
-                public void onStatusChanged(String provider, int status, Bundle extras) {
-
-                }
-
-                @Override
-                public void onProviderEnabled(String provider) {
-
-                }
-
-                @Override
-                public void onProviderDisabled(String provider) {
-
-                }
-
-
-            });
-
-
-        } catch (SecurityException e) {
+            LocationListener myLocationListener = getLocationListener();
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, myLocationListener);
+        }catch (SecurityException e) {
 
             Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
 
         }
+    }
 
 
+    public void clickInscription(View v) {
+        Intent i = new Intent(MainActivity.this, MainActivity_inscription.class);
+        startActivity(i);
+    }
 
-
-
-
-
-
-
+    public void clickConnexion(View v) {
+        Intent i = new Intent(MainActivity.this, MainActivity_connexion.class);
+        startActivity(i);
 
     }
 
 
+    public void clickEnregistrer(View v) {
+
+            Log.i("BOUTON CLICK  " , "" + longitude + " ---- " + latitude);
+
+    }
+
+    LocationListener getLocationListener(){
+       return new LocationListener( ) {
+
+            @Override
+            public void onLocationChanged(android.location.Location location) {
+
+                longitude = location.getLongitude();
+                final Zone z = new Zone(0, 0, 0, longitude, latitude);
 
 
+            }
 
+
+            @Override
+            public void onStatusChanged(String provider, int status, Bundle extras) {
+
+            }
+
+            @Override
+            public void onProviderEnabled(String provider) {
+
+            }
+
+            @Override
+            public void onProviderDisabled(String provider) {
+
+            }
+
+
+        };
+    }
 
 }
 
