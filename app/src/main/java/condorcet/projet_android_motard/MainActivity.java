@@ -87,7 +87,6 @@ public class MainActivity extends AppCompatActivity {
                 }catch (SecurityException e){
                     e.printStackTrace();
                 }
-                onstart = false;
             }
             else {
                 Log.i("BOUTON CLICK  ", "" + longitude + " ---- " + latitude);
@@ -99,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onLocationChanged(android.location.Location location) {
+                onstart = false;
                 latitude = location.getLatitude();
                 longitude = location.getLongitude();
                 final Zone z = new Zone(0, 0, 0, longitude, latitude);
