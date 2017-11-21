@@ -18,13 +18,17 @@ public class CheckAutorisations extends Activity {
     private static final int MY_PERMISSIONS_REQUEST_COARSE_LOCATION = 2;
     private Boolean[] authorisations;
 
+
+    /* passe l'activity sur la quel on travail */
+
     public CheckAutorisations (Activity activity) {
         _activity = activity;
         authorisations = new Boolean[2];
-        Arrays.fill(authorisations, false);
+        Arrays.fill(authorisations, false); // par défaut autorisation sur faux
     }
 
-    public void askPermissions() {
+    public void askPermissions() // regarder dans le code si on a déjà eu la permission
+    {
         ActivityCompat.requestPermissions(_activity,
                 new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                 MY_PERMISSIONS_REQUEST_FINE_LOCATION);
