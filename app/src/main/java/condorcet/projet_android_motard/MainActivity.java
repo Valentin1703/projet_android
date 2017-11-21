@@ -52,6 +52,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickEnregistrer (View v)
     {
+        final CheckAutorisations checkPermissions = new CheckAutorisations(this);
+        if(!checkPermissions.hasPermissions()){
+            checkPermissions.askPermissions();
+        }
+
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         ArrayList<String> names =(ArrayList<String>) locationManager.getProviders(true);
         boolean gps=false;
