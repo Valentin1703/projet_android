@@ -9,30 +9,21 @@ import com.google.gson.annotations.SerializedName;
 public class Zone {
 
 
-
-
-    @SerializedName("id_zone")
-    @Expose
     private int id_zone;
 
 
-    @SerializedName("id_couleur")
-    @Expose
     private int id_couleur;
 
-    @SerializedName("id_utilisateur")
-    @Expose
+
     private int id_utilisateur;
 
-    @SerializedName("pos_gps_lati")
-    @Expose
+
     private double pos_gps_lati;
-    @SerializedName("pos_gps_long")
-    @Expose
+
     private double pos_gps_long;
 
 
-    public Zone(int id_zone, int id_couleur, int id_utilisateur, double pos_gps_lati, double pos_gps_long) {
+    public Zone(int id_zone,int id_couleur, int id_utilisateur, double pos_gps_lati, double pos_gps_long) {
         this.id_zone = id_zone;
         this.id_couleur = id_couleur;
         this.id_utilisateur = id_utilisateur;

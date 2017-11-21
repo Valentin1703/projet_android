@@ -4,6 +4,7 @@ import android.content.Context;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +14,8 @@ import android.content.Intent;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import condorcet.projet_android_motard.DAO.ZoneDAO;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -84,13 +87,17 @@ public class MainActivity extends AppCompatActivity {
                 try{
                     Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                     Log.i("ONSTART BOUTON CLICK", " " + location.getLatitude() + " " + location.getLongitude());
+                    zone = new Zone(0, 0, 0, location.getLongitude(), location.getLatitude());
                 }catch (SecurityException e){
                     e.printStackTrace();
                 }
             }
             else {
-                Log.i("BOUTON CLICK  ", "" + longitude + " ---- " + latitude);
+                zone = new Zone(0, 0, 0, longitude, latitude);
             }
+
+            InsertZoneAsyncTask insertZoneAsyncTask = new InsertZoneAsyncTask(this,zone);
+            insertZoneAsyncTask.execute();
     }
 
     LocationListener getLocationListener(){
@@ -101,9 +108,6 @@ public class MainActivity extends AppCompatActivity {
                 onstart = false;
                 latitude = location.getLatitude();
                 longitude = location.getLongitude();
-                final Zone z = new Zone(0, 0, 0, longitude, latitude);
-
-
             }
 
 
@@ -122,9 +126,57 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
-
         };
     }
 
+    class InsertZoneAsyncTask extends AsyncTask<String,Integer,Boolean>{
+        private Zone z;
+
+        public InsertZoneAsyncTask(MainActivity MainA, Zone z) {
+            Log.i("ASYNCT ","Constructeur");
+            this.z = z;
+            link(MainA);
+        }
+
+        private void link(MainActivity mainActivity){
+
+        }
+
+        @Override
+        protected void onPreExecute() {
+            Log.i("ASYNCT ","Disable Button");
+            super.onPreExecute();
+            enregistrer.setEnabled(false);
+        }
+
+        @Override
+        protected Boolean doInBackground(String... strings) {
+            ZoneDAO zdao = new ZoneDAO();
+            try{
+                Log.i("ASYNCT ","Try call ZoneDAO.create()");
+                int i = zdao.create(z);
+                if(i < 1 ){
+                    Log.i("ASYNCT ","ZoneDAO return false");
+                    return false;
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+                return false;
+            }
+            Log.i("ASYNCT ","ZoneDAO.create() return true");
+            return true;
+        }
+
+        @Override
+        protected void onPostExecute(Boolean resultat) {
+            super.onPostExecute(resultat);
+            enregistrer.setEnabled(true);
+            if(resultat)
+                Toast.makeText(getApplicationContext(),"Creation reussie",Toast.LENGTH_LONG).show();
+            else
+                Toast.makeText(getApplicationContext(),"Creation échouée",Toast.LENGTH_LONG).show();
+
+        }
+    }
 }
 
