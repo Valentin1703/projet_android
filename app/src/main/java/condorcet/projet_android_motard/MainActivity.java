@@ -31,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
     boolean onstart = true;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -40,16 +41,21 @@ public class MainActivity extends AppCompatActivity {
         connexion = (Button) findViewById(R.id.btn_menu_connexion);
         enregistrer = (Button) findViewById(R.id.btn_save_gps);
 
+
         final CheckAutorisations checkPermissions = new CheckAutorisations(this);
-        if (!checkPermissions.hasPermissions()) {
+        if (!checkPermissions.hasPermissions())
+        {
             checkPermissions.askPermissions();
         }
+
+
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         ArrayList<String> names = (ArrayList<String>) locationManager.getProviders(true);
         boolean gps = false;
 
-        for (String name : names) {
+        for (String name : names)
+        {
 
             if (name.equals(LocationManager.GPS_PROVIDER)) gps = true;
             Log.d("position", name);
@@ -57,12 +63,14 @@ public class MainActivity extends AppCompatActivity {
 
         if (!gps) Toast.makeText(this, "service gps indisponible", Toast.LENGTH_LONG).show();
 
-        else try {
+        else try
+        {
 
-            //NETWORK_PROVIDER utilise les antennes GSM et le mode COARSE
+
             LocationListener myLocationListener = getLocationListener();
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, myLocationListener);
-        }catch (SecurityException e) {
+        }catch (SecurityException e)
+        {
 
             Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
 
@@ -70,31 +78,38 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void clickInscription(View v) {
+    public void clickInscription(View v)
+    {
         Intent i = new Intent(MainActivity.this, MainActivity_inscription.class);
         startActivity(i);
     }
 
-    public void clickConnexion(View v) {
+    public void clickConnexion(View v)
+    {
         Intent i = new Intent(MainActivity.this, MainActivity_connexion.class);
         startActivity(i);
 
     }
 
 
-    public void clickEnregistrer(View v) {
-            if(onstart){
-                try{
+    public void clickEnregistrer(View v)
+    {
+            if(onstart)
+            {
+                try
+                {
                     Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                     float tmpLong = (float) location.getLongitude();
                     float tmpLat = (float) location.getLatitude();
                     Log.i("ONSTART BOUTON CLICK", " " + tmpLat + " " + tmpLong);
                     zone = new Zone(0, 0, 0,tmpLat , tmpLong);
-                }catch (SecurityException e){
+                }catch (SecurityException e)
+                {
                     e.printStackTrace();
                 }
             }
-            else {
+            else
+            {
                 zone = new Zone(0, 0, 0, longitude, latitude);
             }
 
@@ -102,7 +117,8 @@ public class MainActivity extends AppCompatActivity {
             insertZoneAsyncTask.execute();
     }
 
-    LocationListener getLocationListener(){
+    LocationListener getLocationListener()
+    {
        return new LocationListener( ) {
 
             @Override
@@ -131,10 +147,22 @@ public class MainActivity extends AppCompatActivity {
         };
     }
 
-    class InsertZoneAsyncTask extends AsyncTask<String,Integer,Boolean>{
+
+
+
+
+
+
+    /* AsyncTask */
+
+
+
+    class InsertZoneAsyncTask extends AsyncTask<String,Integer,Boolean>
+    {
         private Zone z;
 
-        public InsertZoneAsyncTask(MainActivity MainA, Zone z) {
+        public InsertZoneAsyncTask(MainActivity MainA, Zone z)
+        {
             Log.i("ASYNCT ","Constructeur");
             this.z = z;
             link(MainA);
@@ -144,15 +172,25 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+
+
+
+
+        /* désactive le bouton enregistrer une fois que l'on a appuyer dessus, évite ainsi d'enregistrer 2 fois la même position par erreur */
         @Override
-        protected void onPreExecute() {
+        protected void onPreExecute()
+        {
             Log.i("ASYNCT ","Disable Button");
             super.onPreExecute();
             enregistrer.setEnabled(false);
         }
 
+
+
+
         @Override
-        protected Boolean doInBackground(String... strings) {
+        protected Boolean doInBackground(String... strings)
+        {
             ZoneDAO zdao = new ZoneDAO();
             try{
                 Log.i("ASYNCT ","Try call ZoneDAO.create()");
@@ -169,8 +207,11 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
 
+
+
         @Override
-        protected void onPostExecute(Boolean resultat) {
+        protected void onPostExecute(Boolean resultat)
+        {
             super.onPostExecute(resultat);
             enregistrer.setEnabled(true);
             if(resultat)

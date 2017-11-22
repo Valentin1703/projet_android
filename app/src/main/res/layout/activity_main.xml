@@ -11,7 +11,7 @@
         android:layout_width="247dp"
         android:layout_height="256dp"
         android:layout_marginStart="68dp"
-        android:layout_marginTop="124dp"
+        android:layout_marginTop="152dp"
         android:background="@android:color/holo_orange_dark"
         android:onClick="clickEnregistrer"
         android:text="Enregistrer la postition"

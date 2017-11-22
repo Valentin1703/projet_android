@@ -1,8 +1,6 @@
 package condorcet.projet_android_motard;
 
-/**
- * Created by User on 20-11-17.
- */
+
 
 public class Utilisateur {
 

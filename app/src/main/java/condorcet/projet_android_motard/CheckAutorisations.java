@@ -8,9 +8,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.PermissionChecker;
 import java.util.Arrays;
-/**
- * Created by lafer on 21-11-17.
- */
+
+
 
 public class CheckAutorisations extends Activity {
     private Activity _activity;
@@ -19,15 +18,15 @@ public class CheckAutorisations extends Activity {
     private Boolean[] authorisations;
 
 
-    /* passe l'activity sur la quel on travail */
 
+    /* passe l'activité sur laquel on travail */
     public CheckAutorisations (Activity activity) {
         _activity = activity;
         authorisations = new Boolean[2];
         Arrays.fill(authorisations, false); // par défaut autorisation sur faux
     }
 
-    public void askPermissions() // regarder dans le code si on a déjà eu la permission
+    public void askPermissions() // regarde dans le code si on a déjà eu la permission ou non
     {
         ActivityCompat.requestPermissions(_activity,
                 new String[]{Manifest.permission.ACCESS_FINE_LOCATION},

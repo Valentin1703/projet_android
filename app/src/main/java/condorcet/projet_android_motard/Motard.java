@@ -1,8 +1,6 @@
 package condorcet.projet_android_motard;
 
-/**
- * Created by krefel on 15-11-17.
- */
+
 
 public class Motard {
 

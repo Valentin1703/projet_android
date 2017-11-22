@@ -64,13 +64,4 @@ public class ZoneDAO extends BaseDAO implements DAO<Zone> {
         return id_zone;
     }
 
-    @Override
-    public boolean delete() {
-        return false;
-    }
-
-    @Override
-    public boolean update(Zone obj) {
-        return false;
-    }
 }
