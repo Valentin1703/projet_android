@@ -4,7 +4,6 @@ import android.content.Context;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,7 +14,10 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import condorcet.projet_android_motard.DAO.ZoneDAO;
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Header;
+import retrofit.client.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
     Button enregistrer = null;
     private LocationManager locationManager;
     private Zone zone;
-
+    private String url="https://apex.oracle.com/pls/apex/valentin_workspace";/*votre repository/votre module";*/
+    private MInterface restInt;
     float longitude;
     float latitude;
     boolean onstart = true;
@@ -47,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         ArrayList<String> names = (ArrayList<String>) locationManager.getProviders(true);
         boolean gps = false;
@@ -65,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
             LocationListener myLocationListener = getLocationListener();
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, myLocationListener);
-        }catch (SecurityException e) {
+        } catch (SecurityException e) {
 
             Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
 
@@ -86,27 +88,60 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void clickEnregistrer(View v) {
-            if(onstart){
-                try{
-                    Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-                    float tmpLong = (float) location.getLongitude();
-                    float tmpLat = (float) location.getLatitude();
-                    Log.i("ONSTART BOUTON CLICK", " " + tmpLat + " " + tmpLong);
-                    zone = new Zone(0, 0, 0,tmpLat , tmpLong);
-                }catch (SecurityException e){
-                    e.printStackTrace();
-                }
+        if (onstart) {
+            try {
+                Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                float tmpLong = (float) location.getLongitude();
+                float tmpLat = (float) location.getLatitude();
+                Log.i("ONSTART BOUTON CLICK", " " + tmpLat + " " + tmpLong);
+                zone = new Zone(0, 0, 0, tmpLat, tmpLong);
+            } catch (SecurityException e) {
+                e.printStackTrace();
             }
-            else {
-                zone = new Zone(0, 0, 0, longitude, latitude);
-            }
+        } else
+            {
+           final Zone zone= new Zone(0, 0,0, longitude, latitude);
 
-            InsertZoneAsyncTask insertZoneAsyncTask = new InsertZoneAsyncTask(this,zone);
-            insertZoneAsyncTask.execute();
+           restInt.postZone(zone,new Callback<Object>()
+           {
+
+                @Override
+                public void success(Object id , Response response) {
+                    int nid=0;
+                    for(Header h:response.getHeaders()){
+                        if(h.getName().equals("ID")) {
+                            nid=Integer.parseInt(h.getValue());
+                            break;
+                        }
+                    }
+
+                }
+
+                @Override
+                public void failure(RetrofitError error) {
+                    String err = error.getMessage();
+                    Toast.makeText(getApplicationContext(),err,Toast.LENGTH_LONG).show();
+                }
+
+            });
+
+
+
+
+
+
+        }
+
+
+
+
+
+
+
     }
 
-    LocationListener getLocationListener(){
-       return new LocationListener( ) {
+    LocationListener getLocationListener() {
+        return new LocationListener() {
 
             @Override
             public void onLocationChanged(android.location.Location location) {
@@ -134,54 +169,4 @@ public class MainActivity extends AppCompatActivity {
         };
     }
 
-    class InsertZoneAsyncTask extends AsyncTask<String,Integer,Boolean>{
-        private Zone z;
-
-        public InsertZoneAsyncTask(MainActivity MainA, Zone z) {
-            Log.i("ASYNCT ","Constructeur");
-            this.z = z;
-            link(MainA);
-        }
-
-        private void link(MainActivity mainActivity){
-
-        }
-
-        @Override
-        protected void onPreExecute() {
-            Log.i("ASYNCT ","Disable Button");
-            super.onPreExecute();
-            enregistrer.setEnabled(false);
-        }
-
-        @Override
-        protected Boolean doInBackground(String... strings) {
-            ZoneDAO zdao = new ZoneDAO();
-            try{
-                Log.i("ASYNCT ","Try call ZoneDAO.create()");
-                int i = zdao.create(z);
-                if(i < 1 ){
-                    Log.i("ASYNCT ","ZoneDAO return false");
-                    return false;
-                }
-            }catch (Exception e){
-                e.printStackTrace();
-                return false;
-            }
-            Log.i("ASYNCT ","ZoneDAO.create() return true");
-            return true;
-        }
-
-        @Override
-        protected void onPostExecute(Boolean resultat) {
-            super.onPostExecute(resultat);
-            enregistrer.setEnabled(true);
-            if(resultat)
-                Toast.makeText(getApplicationContext(),"Creation reussie",Toast.LENGTH_LONG).show();
-            else
-                Toast.makeText(getApplicationContext(),"Creation échouée",Toast.LENGTH_LONG).show();
-
-        }
-    }
 }
-

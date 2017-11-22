@@ -2,31 +2,42 @@ package condorcet.projet_android_motard;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import javax.annotation.Generated;
 
-
-// @Generated("org.jsonschema2pojo");
+ //@Generated("org.jsonschema2pojo");
 
 public class Zone {
 
 
+    @SerializedName("id_zone")
+    @Expose
     private int id_zone;
 
+    @SerializedName("id_motard")
+    @Expose
+    private int id_motard;
 
+    @SerializedName("id_couleur")
+    @Expose
     private int id_couleur;
 
 
-    private int id_utilisateur;
 
 
+
+    @SerializedName("pos_gps_lati")
+    @Expose
     private float pos_gps_lati;
 
+    @SerializedName("pos_gps_long")
+    @Expose
     private float pos_gps_long;
 
 
-    public Zone(int id_zone,int id_couleur, int id_utilisateur, float pos_gps_lati, float pos_gps_long) {
+    public Zone(int id_zone, int id_motard, int id_couleur, float pos_gps_lati, float pos_gps_long) {
         this.id_zone = id_zone;
+        this.id_motard = id_motard;
         this.id_couleur = id_couleur;
-        this.id_utilisateur = id_utilisateur;
         this.pos_gps_lati = pos_gps_lati;
         this.pos_gps_long = pos_gps_long;
     }
@@ -47,12 +58,12 @@ public class Zone {
         this.id_couleur = id_couleur;
     }
 
-    public int getId_utilisateur() {
-        return id_utilisateur;
+    public int getId_motard() {
+        return id_motard;
     }
 
-    public void setId_utilisateur(int id_utilisateur) {
-        this.id_utilisateur = id_utilisateur;
+    public void setId_motard(int id_utilisateur) {
+        this.id_motard = id_utilisateur;
     }
 
     public float getPos_gps_lati() {
@@ -77,7 +88,7 @@ public class Zone {
         return "Zone{" +
                 "id_zone=" + id_zone +
                 ", id_couleur=" + id_couleur +
-                ", id_utilisateur=" + id_utilisateur +
+                ", id_utilisateur=" + id_motard +
                 ", pos_gps_lati=" + pos_gps_lati +
                 ", pos_gps_long=" + pos_gps_long +
                 '}';
