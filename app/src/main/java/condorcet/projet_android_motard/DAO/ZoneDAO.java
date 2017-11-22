@@ -32,7 +32,7 @@ public class ZoneDAO extends BaseDAO implements DAO<Zone> {
         int id_zone = 0;
         System.out.println("--- Create Zone method ---");
         json = "";
-        try{
+   /*     try{
            JSONObject jo = new JSONObject();
            try{
                jo.put("id_zone",zone.getId_zone());
@@ -47,13 +47,12 @@ public class ZoneDAO extends BaseDAO implements DAO<Zone> {
             System.out.println("zone to json : " + json);
         }catch (Exception e){
             e.printStackTrace();
-        }
+        } */
         response = service.path("gpos").path("creapos/").type("application/json").post(ClientResponse.class,json);
         int status = response.getStatus();
         MultivaluedMap header = response.getHeaders();
         if(status >= 400){
             System.err.println("erreur status " + status);
-            //ouin ouin
             System.err.println(header.getFirst("Error-Reason"));
         }
         else{

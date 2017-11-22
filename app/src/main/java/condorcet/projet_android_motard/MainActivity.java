@@ -40,10 +40,13 @@ public class MainActivity extends AppCompatActivity {
         connexion = (Button) findViewById(R.id.btn_menu_connexion);
         enregistrer = (Button) findViewById(R.id.btn_save_gps);
 
+
         final CheckAutorisations checkPermissions = new CheckAutorisations(this);
         if (!checkPermissions.hasPermissions()) {
             checkPermissions.askPermissions();
         }
+
+
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         ArrayList<String> names = (ArrayList<String>) locationManager.getProviders(true);
@@ -59,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
         else try {
 
-            //NETWORK_PROVIDER utilise les antennes GSM et le mode COARSE
+
             LocationListener myLocationListener = getLocationListener();
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, myLocationListener);
         }catch (SecurityException e) {
