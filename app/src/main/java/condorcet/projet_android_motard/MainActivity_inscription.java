@@ -2,41 +2,85 @@ package condorcet.projet_android_motard;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+
+import retrofit.Callback;
+import retrofit.RestAdapter;
+import retrofit.RetrofitError;
+import retrofit.client.Header;
+import retrofit.client.Response;
 
 public class MainActivity_inscription extends AppCompatActivity {
 
-    EditText nom=null;
-    EditText prenom=null;
-    EditText adresse=null;
-    EditText tel=null;
-    EditText email=null;
-    EditText mdp=null;
+    EditText ednom=null;
+    EditText edprenom=null;
+    EditText edmdp = null;
+    EditText edadresse = null;
+    EditText edemail = null;
 
-
-
+    private MInterface restInt;
+    private String url="https://apex.oracle.com/pls/apex/valentin_workspace/gmot";/*votre repository/votre module";*/
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_inscription);
-
-        nom = (EditText) findViewById(R.id.ednom);
-        prenom =(EditText) findViewById(R.id.edprenom);
-        adresse= (EditText)findViewById(R.id.edadr);
-        tel = (EditText)findViewById(R.id.edtel);
-        email = (EditText)findViewById(R.id.edemail);
-        mdp =(EditText)findViewById(R.id.edmdp);
-
-
-
+        ednom= (EditText) findViewById(R.id.ednom);
+        edprenom =(EditText) findViewById(R.id.edprenom);
+        edadresse= (EditText)findViewById(R.id.edadr);
+        edemail = (EditText)findViewById(R.id.edemail);
+        edmdp =(EditText)findViewById(R.id.edmdp);
+        RestAdapter radapter= new RestAdapter.Builder().setEndpoint(url).build();
+        restInt=radapter.create(MInterface.class);
+    }
 
 
+    public void Add_motard(View v)
+    {
+        String nom = ednom.getText().toString();
+        String prenom = edprenom.getText().toString();
+        String adresse = edadresse.getText().toString();
+        String email = edemail.getText().toString();
+        String password = edmdp.getText().toString();
+
+        final Motard motard = new Motard(0,nom,prenom,email,adresse,password);
+
+
+        restInt.post_ajout_motard(motard, new Callback<Object>() {
+
+            @Override
+            public void success(Object id, Response response) {
+                int nid = 0;
+                for (Header h : response.getHeaders()) {
+                    if (h.getName().equals("ID")) {
+                        nid = Integer.parseInt(h.getValue());
+                        Toast.makeText(getApplicationContext(), "création ok ", Toast.LENGTH_LONG).show();
+                        break;
+
+                    }
+                }
+               // motard.setId_motard(nid);
+               // ednom.setText(String.valueOf(nid));
 
 
 
+            }
 
+            @Override
+            public void failure(RetrofitError error) {
+                String err = error.getMessage();
+                Toast.makeText(getApplicationContext(), err, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "erreur de création", Toast.LENGTH_LONG).show();
+            }
+
+        });
 
     }
+
 }

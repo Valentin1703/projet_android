@@ -35,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
     boolean onstart = true;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -45,8 +46,11 @@ public class MainActivity extends AppCompatActivity {
         enregistrer = (Button) findViewById(R.id.btn_save_gps);
 
 
+        //  vérifie les autorisations
+
         final CheckAutorisations checkPermissions = new CheckAutorisations(this);
-        if (!checkPermissions.hasPermissions()) {
+        if (!checkPermissions.hasPermissions())
+        {
             checkPermissions.askPermissions();
         }
 
@@ -55,7 +59,8 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<String> names = (ArrayList<String>) locationManager.getProviders(true);
         boolean gps = false;
 
-        for (String name : names) {
+        for (String name : names)
+        {
 
             if (name.equals(LocationManager.GPS_PROVIDER)) gps = true;
             Log.d("position", name);
@@ -63,12 +68,15 @@ public class MainActivity extends AppCompatActivity {
 
         if (!gps) Toast.makeText(this, "service gps indisponible", Toast.LENGTH_LONG).show();
 
-        else try {
+        else try
+        {
 
 
             LocationListener myLocationListener = getLocationListener();
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, myLocationListener);
-        } catch (SecurityException e) {
+        }
+        catch (SecurityException e)
+        {
 
             Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
 
@@ -76,41 +84,40 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void clickInscription(View v) {
-        Intent i = new Intent(MainActivity.this, MainActivity_inscription.class);
-        startActivity(i);
-    }
-
-    public void clickConnexion(View v) {
-        Intent i = new Intent(MainActivity.this, MainActivity_connexion.class);
-        startActivity(i);
-
-    }
 
 
-    public void clickEnregistrer(View v) {
-        if (onstart) {
-            try {
+    // procedure pour envoyer les données GPS a la base de donnée APEX
+    public void clickEnregistrer(View v)
+    {
+        if (onstart)
+        {
+            try
+            {
                 Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                 float tmpLong = (float) location.getLongitude();
                 float tmpLat = (float) location.getLatitude();
                 Log.i("ONSTART BOUTON CLICK", " " + tmpLat + " " + tmpLong);
                 zone = new Zone(0, 0, 0, tmpLat, tmpLong);
-            } catch (SecurityException e) {
+            } catch (SecurityException e)
+            {
                 e.printStackTrace();
             }
-        } else
-            {
-           final Zone zone= new Zone(0, 0,0, longitude, latitude);
+        }
+        else
+        {
+           final Zone zone= new Zone(0, 0,0, latitude, longitude);
 
            restInt.postZone(zone,new Callback<Object>()
            {
 
-                @Override
-                public void success(Object id , Response response) {
+                @Override // recupere l'id de la zone pr verifier si il c'est bien ajouté.  A supprimer plus tard
+                public void success(Object id , Response response)
+                {
                     int nid=0;
-                    for(Header h:response.getHeaders()){
-                        if(h.getName().equals("ID")) {
+                    for(Header h:response.getHeaders())
+                    {
+                        if(h.getName().equals("ID"))
+                        {
                             nid=Integer.parseInt(h.getValue());
                             break;
                         }
@@ -119,7 +126,8 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 @Override
-                public void failure(RetrofitError error) {
+                public void failure(RetrofitError error)
+                {
                     String err = error.getMessage();
                     Toast.makeText(getApplicationContext(),err,Toast.LENGTH_LONG).show();
                 }
@@ -132,14 +140,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         }
-
-
-
-
-
-
-
     }
+
 
     LocationListener getLocationListener() {
         return new LocationListener() {
@@ -168,6 +170,18 @@ public class MainActivity extends AppCompatActivity {
             }
 
         };
+    }
+
+    // intent
+    public void clickInscription(View v) {
+        Intent i = new Intent(MainActivity.this, MainActivity_inscription.class);
+        startActivity(i);
+    }
+
+    public void clickConnexion(View v) {
+        Intent i = new Intent(MainActivity.this, MainActivity_connexion.class);
+        startActivity(i);
+
     }
 
 }

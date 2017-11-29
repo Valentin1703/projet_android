@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="condorcet.projet_android_motard">
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- permission la géolocalisation (par GPS, donc) -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- permission localisation par wifi -->
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- permission la géolocalisation (par GPS, donc) -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <!-- permission localisation par wifi -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,7 +22,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity_inscription" />
-        <activity android:name=".MainActivity_connexion"></activity>
+        <activity android:name=".MainActivity_connexion" />
+        <activity android:name=".MainActivity_mes_zones" />
+        <activity android:name=".Liste_zones"></activity>
     </application>
 
 </manifest>
