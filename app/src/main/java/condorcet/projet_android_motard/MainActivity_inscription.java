@@ -1,9 +1,11 @@
 package condorcet.projet_android_motard;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -22,10 +24,8 @@ public class MainActivity_inscription extends AppCompatActivity {
     EditText edmdp = null;
     EditText edadresse = null;
     EditText edemail = null;
-
+    Button buttonInscription;
     private MInterface restInt;
-    private String url="https://apex.oracle.com/pls/apex/valentin_workspace/gmot";/*votre repository/votre module";*/
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -37,7 +37,8 @@ public class MainActivity_inscription extends AppCompatActivity {
         edadresse= (EditText)findViewById(R.id.edadr);
         edemail = (EditText)findViewById(R.id.edemail);
         edmdp =(EditText)findViewById(R.id.edmdp);
-        RestAdapter radapter= new RestAdapter.Builder().setEndpoint(url).build();
+        buttonInscription = (Button)findViewById(R.id.btn_inscription);
+        RestAdapter radapter= new RestAdapter.Builder().setEndpoint(MInterface.WEBSERVICEURL).build();
         restInt=radapter.create(MInterface.class);
     }
 
@@ -79,7 +80,6 @@ public class MainActivity_inscription extends AppCompatActivity {
             }
 
         });
-
     }
 
 }

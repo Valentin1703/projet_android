@@ -27,14 +27,14 @@ public class Zone {
 
     @SerializedName("pos_gps_lati")
     @Expose
-    private float pos_gps_lati;
+    private double pos_gps_lati;
 
     @SerializedName("pos_gps_long")
     @Expose
-    private float pos_gps_long;
+    private double pos_gps_long;
 
 
-    public Zone(int id_zone, int id_motard, int id_couleur, float pos_gps_lati, float pos_gps_long) {
+    public Zone(int id_zone, int id_motard, int id_couleur, double pos_gps_lati, double pos_gps_long) {
         this.id_zone = id_zone;
         this.id_motard = id_motard;
         this.id_couleur = id_couleur;
@@ -66,7 +66,7 @@ public class Zone {
         this.id_motard = id_utilisateur;
     }
 
-    public float getPos_gps_lati() {
+    public double getPos_gps_lati() {
         return pos_gps_lati;
     }
 
@@ -74,7 +74,7 @@ public class Zone {
         this.pos_gps_lati = pos_gps_lati;
     }
 
-    public float getPos_gps_long() {
+    public double getPos_gps_long() {
         return pos_gps_long;
     }
 
