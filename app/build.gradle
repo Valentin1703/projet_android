@@ -29,8 +29,8 @@ dependencies {
     compile 'com.squareup.retrofit:retrofit:1.9.0'
     compile 'com.squareup.okhttp:okhttp:2.4.0'
     compile 'org.glassfish:javax.annotation:10.0-b28'
+    // librairy pour le bouton rond
 
-
-
-
+    // compile 'com.cuboid:coboidcirclebutton:1.0.3'
+    // implementation 'com.cuboid:cuboidcirclebutton:1.0.3'
 }

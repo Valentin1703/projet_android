@@ -28,11 +28,13 @@ public class MainActivity extends AppCompatActivity {
     Button enregistrer = null;
     private LocationManager locationManager;
     private Zone zone;
-    private String url="https://apex.oracle.com/pls/apex/valentin_workspace";/*votre repository/votre module";*/
+    private String url = "https://apex.oracle.com/pls/apex/valentin_workspace/gpos";/*votre repository/votre module";*/
     private MInterface restInt;
     float longitude;
     float latitude;
     boolean onstart = true;
+    private Motard motard;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,10 +47,17 @@ public class MainActivity extends AppCompatActivity {
         enregistrer = (Button) findViewById(R.id.btn_save_gps);
 
 
+        //  vérifie les autorisations
+
         final CheckAutorisations checkPermissions = new CheckAutorisations(this);
-        if (!checkPermissions.hasPermissions()) {
+        if (!checkPermissions.hasPermissions())
+        {
             checkPermissions.askPermissions();
         }
+
+
+
+
 
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -76,42 +85,42 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void clickInscription(View v) {
-        Intent i = new Intent(MainActivity.this, MainActivity_inscription.class);
-        startActivity(i);
-    }
 
-    public void clickConnexion(View v) {
-        Intent i = new Intent(MainActivity.this, MainActivity_connexion.class);
-        startActivity(i);
-
-    }
-
+        // procedure pour envoyer les données GPS a la base de donnée APEX
 
     public void clickEnregistrer(View v) {
+
+        // recupere l'id du motard qui viens de ce connecter
+        int id = motard.getId_motard();
+
+
         if (onstart) {
             try {
                 Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                 float tmpLong = (float) location.getLongitude();
                 float tmpLat = (float) location.getLatitude();
                 Log.i("ONSTART BOUTON CLICK", " " + tmpLat + " " + tmpLong);
-                zone = new Zone(0, 0, 0, tmpLat, tmpLong);
+
+
+                Toast.makeText(getApplicationContext(), "id du motard : " + id, Toast.LENGTH_LONG).show();
+
+
+                zone = new Zone(0, id, 0, tmpLat, tmpLong);
             } catch (SecurityException e) {
                 e.printStackTrace();
             }
-        } else
-            {
-           final Zone zone= new Zone(0, 0,0, longitude, latitude);
+        } else {
+            final Zone zone = new Zone(0, id, 0, latitude, longitude);
 
-           restInt.postZone(zone,new Callback<Object>()
-           {
+            restInt.postZone(zone, new Callback<Object>() {
 
                 @Override
-                public void success(Object id , Response response) {
-                    int nid=0;
-                    for(Header h:response.getHeaders()){
-                        if(h.getName().equals("ID")) {
-                            nid=Integer.parseInt(h.getValue());
+                // recupere l'id de la zone pr verifier si il c'est bien ajouté.  A supprimer plus tard
+                public void success(Object id, Response response) {
+                    int nid = 0;
+                    for (Header h : response.getHeaders()) {
+                        if (h.getName().equals("ID")) {
+                            nid = Integer.parseInt(h.getValue());
                             break;
                         }
                     }
@@ -121,25 +130,15 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void failure(RetrofitError error) {
                     String err = error.getMessage();
-                    Toast.makeText(getApplicationContext(),err,Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), err, Toast.LENGTH_LONG).show();
                 }
 
             });
 
 
-
-
-
-
         }
-
-
-
-
-
-
-
     }
+
 
     LocationListener getLocationListener() {
         return new LocationListener() {
@@ -168,6 +167,19 @@ public class MainActivity extends AppCompatActivity {
             }
 
         };
+    }
+
+
+    // intent
+    public void clickInscription(View v) {
+        Intent i = new Intent(MainActivity.this, MainActivity_inscription.class);
+        startActivity(i);
+    }
+
+    public void clickConnexion(View v) {
+        Intent j = new Intent(MainActivity.this, MainActivity_connexion.class);
+        startActivity(j);
+
     }
 
 }

@@ -3,13 +3,11 @@
     <string name="app_name">Projet_android_motard</string>
     <string name="nom">last name</string>
     <string name="prenom">first name</string>
-    <string name="telephone">telephone</string>
     <string name="adresse">adress</string>
     <string name="envoi">Send</string>
-    <string name="tel">telephone</string>
-    <string name="inscription">inscription</string>
+    <string name="inscription">sign up</string>
     <string name="enregistrer">save</string>
     <string name="email">email</string>
-    <string name="connexion">connection</string>
+    <string name="connexion">sign in</string>
     <string name="mdp">password</string>
 </resources>

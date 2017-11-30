@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Projet_android_motard</string>
+    <string name="nom">nome</string>
+    <string name="prenom">conome</string>
+    <string name="adresse">indirizzo</string>
+    <string name="envoi">spedizione</string>
+    <string name="inscription">iscrizione</string>
+    <string name="enregistrer">registrare</string>
+    <string name="email">email</string>
+    <string name="connexion">collegamento</string>
+    <string name="mdp">password</string>
+</resources>
