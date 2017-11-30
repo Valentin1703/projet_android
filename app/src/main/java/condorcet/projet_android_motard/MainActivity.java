@@ -20,7 +20,7 @@ import retrofit.client.Header;
 import retrofit.client.Response;
 
 
-// si tu vois ça t'es une petite bite
+// si tu vois ça t'es une tête de bite
 public class MainActivity extends AppCompatActivity {
 
 
