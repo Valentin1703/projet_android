@@ -19,6 +19,8 @@ import retrofit.RetrofitError;
 import retrofit.client.Header;
 import retrofit.client.Response;
 
+
+// si tu vois ça t'es une petite bite
 public class MainActivity extends AppCompatActivity {
 
 
