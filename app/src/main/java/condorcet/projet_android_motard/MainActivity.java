@@ -64,7 +64,8 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<String> names = (ArrayList<String>) locationManager.getProviders(true);
         boolean gps = false;
 
-        for (String name : names) {
+        for (String name : names)
+        {
 
             if (name.equals(LocationManager.GPS_PROVIDER)) gps = true;
             Log.d("position", name);
