@@ -28,13 +28,13 @@ public class MainActivity extends AppCompatActivity {
     Button inscription = null;
     Button connexion = null;
     Button enregistrer = null;
-    Double longitude;
-    Double latitude;
-    boolean onstart = true;
     private LocationManager locationManager;
     private Zone zone;
     private String url = "https://apex.oracle.com/pls/apex/valentin_workspace/gpos";/*votre repository/votre module";*/
     private MInterface restInt;
+    float longitude;
+    float latitude;
+    boolean onstart = true;
     private Motard motard;
 
 
@@ -52,15 +52,18 @@ public class MainActivity extends AppCompatActivity {
         //  vérifie les autorisations
 
         final CheckAutorisations checkPermissions = new CheckAutorisations(this);
-        if (!checkPermissions.hasPermissions()) {
+        if (!checkPermissions.hasPermissions())
+        {
             checkPermissions.askPermissions();
         }
+
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         ArrayList<String> names = (ArrayList<String>) locationManager.getProviders(true);
         boolean gps = false;
 
-        for (String name : names) {
+        for (String name : names)
+        {
 
             if (name.equals(LocationManager.GPS_PROVIDER)) gps = true;
             Log.d("position", name);
@@ -68,69 +71,77 @@ public class MainActivity extends AppCompatActivity {
 
         if (!gps) Toast.makeText(this, "service gps indisponible", Toast.LENGTH_LONG).show();
 
-        else try {
+        else try
+        {
 
 
             LocationListener myLocationListener = getLocationListener();
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, myLocationListener);
-        } catch (SecurityException e) {
+        }
+        catch (SecurityException e)
+        {
 
             Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
 
         }
-
-        enregistrer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // recupere l'id du motard qui viens de ce connecter
-                int id = motard.getId_motard();
+    }
 
 
-                if (onstart) {
-                    try {
-                        Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-                        double tmpLong = location.getLongitude();
-                        double tmpLat = location.getLatitude();
-                        Log.i("ONSTART BOUTON CLICK", " " + tmpLat + " " + tmpLong);
 
 
-                        Toast.makeText(getApplicationContext(), "id du motard : " + id, Toast.LENGTH_LONG).show();
+        // procedure pour envoyer les données GPS a la base de donnée APEX
+
+    public void clickEnregistrer(View v) {
+
+        // recupere l'id du motard qui viens de ce connecter
+        int id = motard.getId_motard();
 
 
-                        zone = new Zone(0, id, 0, tmpLat, tmpLong);
-                    } catch (SecurityException e) {
-                        e.printStackTrace();
+
+        if (onstart) {
+            try {
+                Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                float tmpLong = (float) location.getLongitude();
+                float tmpLat = (float) location.getLatitude();
+                Log.i("ONSTART BOUTON CLICK", " " + tmpLat + " " + tmpLong);
+
+
+                Toast.makeText(getApplicationContext(), "id du motard : " + id, Toast.LENGTH_LONG).show();
+
+
+                zone = new Zone(0, id, 0, tmpLat, tmpLong);
+            } catch (SecurityException e) {
+                e.printStackTrace();
+            }
+        } else {
+            final Zone zone = new Zone(0, id, 0, latitude, longitude);
+
+            restInt.postZone(zone, new Callback<Object>() {
+
+                @Override
+                // recupere l'id de la zone pr verifier si il c'est bien ajouté.  A supprimer plus tard
+                public void success(Object id, Response response)
+                {
+                    int nid = 0;
+                    for (Header h : response.getHeaders()) {
+                        if (h.getName().equals("ID")) {
+                            nid = Integer.parseInt(h.getValue());
+                            break;
+                        }
                     }
-                } else {
-                    final Zone zone = new Zone(0, id, 0, latitude, longitude);
-
-                    restInt.postZone(zone, new Callback<Object>() {
-
-                        @Override
-                        // recupere l'id de la zone pr verifier si il c'est bien ajouté.  A supprimer plus tard
-                        public void success(Object id, Response response) {
-                            int nid = 0;
-                            for (Header h : response.getHeaders()) {
-                                if (h.getName().equals("ID")) {
-                                    nid = Integer.parseInt(h.getValue());
-                                    break;
-                                }
-                            }
-
-                        }
-
-                        @Override
-                        public void failure(RetrofitError error) {
-                            String err = error.getMessage();
-                            Toast.makeText(getApplicationContext(), err, Toast.LENGTH_LONG).show();
-                        }
-
-                    });
-
 
                 }
-            }
-        });
+
+                @Override
+                public void failure(RetrofitError error) {
+                    String err = error.getMessage();
+                    Toast.makeText(getApplicationContext(), err, Toast.LENGTH_LONG).show();
+                }
+
+            });
+
+
+        }
     }
 
 
@@ -140,8 +151,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onLocationChanged(android.location.Location location) {
                 onstart = false;
-                latitude = location.getLatitude();
-                longitude = location.getLongitude();
+                latitude = (float) location.getLatitude();
+                longitude = (float) location.getLongitude();
             }
 
 
@@ -175,5 +186,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(j);
 
     }
+
+
 
 }
