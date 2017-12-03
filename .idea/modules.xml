@@ -4,9 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://C:\Users\User\AndroidStudioProjects\projet_android_motard\app\app.iml" filepath="C:\Users\User\AndroidStudioProjects\projet_android_motard\app\app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/projet_android.iml" filepath="$PROJECT_DIR$/projet_android.iml" />
       <module fileurl="file://C:\Users\User\AndroidStudioProjects\projet_android_motard\projet_android.iml" filepath="C:\Users\User\AndroidStudioProjects\projet_android_motard\projet_android.iml" />
-      <module fileurl="file://C:\Users\valentin\Desktop\Projet android studio\projet_android\projet_android_motard.iml" filepath="C:\Users\valentin\Desktop\Projet android studio\projet_android\projet_android_motard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/projet_android_motard.iml" filepath="$PROJECT_DIR$/projet_android_motard.iml" />
     </modules>
   </component>
 </project>
