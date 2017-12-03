@@ -18,7 +18,8 @@ public class MainActivity_connexion extends AppCompatActivity {
 
 
    private EditText edemail;
-    private EditText edpassword;
+   private EditText edpassword;
+    Globals g = Globals.getInstance();
    // int nid=0;
 
 
@@ -61,6 +62,7 @@ public class MainActivity_connexion extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Connexion  ok ", Toast.LENGTH_LONG).show();
                    // edemail.setText(String.valueOf(motard.getId_motard()));
                     Intent i = new Intent(MainActivity_connexion.this, MainActivity.class);
+                    g.setData(motard.getId_motard());
 
                     startActivity(i);
 
