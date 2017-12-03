@@ -12,9 +12,10 @@
         android:layout_width="229dp"
         android:layout_height="266dp"
         android:layout_marginStart="76dp"
+        android:layout_marginLeft="76dp"
         android:layout_marginTop="192dp"
         android:background="@color/colorPrimaryDark"
-        android:onClick="clickEnregistrer"
+
         android:text="Enregistrer la postition"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />;
