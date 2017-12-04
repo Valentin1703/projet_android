@@ -66,8 +66,7 @@ public class MainActivity_inscription extends AppCompatActivity {
                         break;
                     }
                 }
-          //      motard.setId_motard(nid);
-           //    ednom.setText(String.valueOf(nid));
+
                 Toast.makeText(getApplicationContext(),"Inscription ok", Toast.LENGTH_LONG).show();
                 Intent i = new Intent(MainActivity_inscription.this, MainActivity.class);
                 startActivity(i);

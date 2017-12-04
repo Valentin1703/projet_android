@@ -21,7 +21,7 @@ public class MesZones_adapter extends ArrayAdapter<Zone>{
         super(context, resource);
     }
 
-/*
+
     public View getView(int position, @Nullable View converView, @Nullable ViewGroup parent)
     {
         View v;
@@ -43,5 +43,5 @@ public class MesZones_adapter extends ArrayAdapter<Zone>{
     }
 
 
-*/
+
 }

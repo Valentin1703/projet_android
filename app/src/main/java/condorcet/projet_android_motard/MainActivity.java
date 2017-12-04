@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     boolean onstart = true;
     private Motard motard;
     Globals g = Globals.getInstance();
-
+    int id = g.getData();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -45,54 +45,53 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mesZones = (Button) findViewById(R.id.btn_mesZones);
-        inscription = (Button) findViewById(R.id.btn_inscription);
-        connexion = (Button) findViewById(R.id.btn_menu_connexion);
-        enregistrer = (Button) findViewById(R.id.btn_save_gps);
-
-
-        RestAdapter radapter= new RestAdapter.Builder().setEndpoint(url).build();
-        restInt=radapter.create(MInterface.class);
-
-
-        //  vérifie les autorisations
-
-        final CheckAutorisations checkPermissions = new CheckAutorisations(this);
-        if (!checkPermissions.hasPermissions())
-        {
-            checkPermissions.askPermissions();
-        }
 
 
 
 
 
+            mesZones = (Button) findViewById(R.id.btn_mesZones);
+            inscription = (Button) findViewById(R.id.btn_inscription);
+            connexion = (Button) findViewById(R.id.btn_menu_connexion);
+            enregistrer = (Button) findViewById(R.id.btn_save_gps);
 
-        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        ArrayList<String> names = (ArrayList<String>) locationManager.getProviders(true);
-        boolean gps = false;
 
-        for (String name : names)
-        {
+            RestAdapter radapter = new RestAdapter.Builder().setEndpoint(url).build();
+            restInt = radapter.create(MInterface.class);
 
-            if (name.equals(LocationManager.GPS_PROVIDER)) gps = true;
-            Log.d("LA POSITION GPS EST ", name);
-        }
 
-        if (!gps) Toast.makeText(this, "service gps indisponible", Toast.LENGTH_LONG).show();
+            //  vérifie les autorisations
 
-        else try
-        {
-            Toast.makeText(MainActivity.this, "service gps dispo", Toast.LENGTH_SHORT).show();
+            final CheckAutorisations checkPermissions = new CheckAutorisations(this);
+            if (!checkPermissions.hasPermissions()) {
+                checkPermissions.askPermissions();
+            }
 
-            LocationListener myLocationListener = getLocationListener();
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, myLocationListener);
 
-        } catch (SecurityException e) {
+            locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+            ArrayList<String> names = (ArrayList<String>) locationManager.getProviders(true);
+            boolean gps = false;
 
-            Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+            for (String name : names) {
 
-        }
+                if (name.equals(LocationManager.GPS_PROVIDER)) gps = true;
+                Log.d("LA POSITION GPS EST ", name);
+            }
+
+            if (!gps) Toast.makeText(this, "service gps indisponible", Toast.LENGTH_LONG).show();
+
+            else try {
+                Toast.makeText(MainActivity.this, "service gps dispo", Toast.LENGTH_SHORT).show();
+
+                LocationListener myLocationListener = getLocationListener();
+                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, myLocationListener);
+
+            } catch (SecurityException e) {
+
+                Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+
+            }
+
     }
 
 
@@ -103,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
     public void clickEnregistrer(View v) {
 
         // recupere l'id du motard qui viens de ce connecter
-        int id = g.getData();
+
         Double tmpLong=0.0;
         Double tmpLat =0.0;
 
@@ -116,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
             {
                 Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                 locationManager = (LocationManager)getSystemService (Context.LOCATION_SERVICE);
-                //J'ai mit PASSIVE_PROVIDER à la palce GSP_PROVIDER au lieu de GSP_PROVIDER
+                //J'ai mit PASSIVE_PROVIDER à la place GSP_PROVIDER au lieu de GSP_PROVIDER
 
                 tmpLong =  location.getLongitude();
                 tmpLat =  location.getLatitude();
@@ -165,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     String err = error.getMessage();
                     Toast.makeText(getApplicationContext(), err, Toast.LENGTH_LONG).show();
-                    Log.i("ONSTART BOUTON CLICK", "ENCULER latitude " + zone.getPos_gps_lati() + "longitude  " + zone.getPos_gps_long());
+                    Log.i("ONSTART BOUTON CLICK", " latitude " + zone.getPos_gps_lati() + "longitude  " + zone.getPos_gps_long());
                 }
 
             });

@@ -17,9 +17,8 @@ public interface MInterface {
     void postZone(@Body Zone zone, Callback<Object> id);
 
 
-  @GET("/client/{id}")
-    void getUserById(@Path("id") int id, Callback<Motard> cli);
-
+  @GET("/meszones/{id_motard}")
+    void getZoneByID(@Path("id") int id, Callback<Zone> zone);
 
 
 @POST("/creamot/")

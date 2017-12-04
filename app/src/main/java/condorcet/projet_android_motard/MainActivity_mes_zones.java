@@ -3,19 +3,26 @@ package condorcet.projet_android_motard;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import java.util.ArrayList;
+import java.util.List;import android.widget.ArrayAdapter;
 public class MainActivity_mes_zones extends AppCompatActivity {
 
     private ArrayList<Zone> mesZone;
     private ListView mesListe_Zone;
     private MesZones_adapter mesZones_adapter;
+    private String url="https://apex.oracle.com/pls/apex/valentin_workspace/gpos";/*votre repository/votre module";*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_mes_zones);
-/*
+
+
+
+
         mesZone = new ArrayList<>();
 
         mesListe_Zone = (ListView)findViewById(R.id.liste_mes_zone);
@@ -23,8 +30,8 @@ public class MainActivity_mes_zones extends AppCompatActivity {
         mesZones_adapter = new MesZones_adapter(getApplicationContext(),0);
 
 
-        mesZone.add(new Zone(0,0,0,5464.5,464.1));
-        mesZone.add(new Zone(0,0,0,546165.0,4654654.0));
+      //  mesZone.add(new Zone(0,0,0,5464.5,464.1));
+       // mesZone.add(new Zone(0,0,0,546165.0,4654654.0));
         //mesZones.add(new Zone())
         //mesZones.add(new Zone())
         //mesZones.add(new Zone())
@@ -37,7 +44,7 @@ public class MainActivity_mes_zones extends AppCompatActivity {
 
         mesZones_adapter.addAll(mesZone);
 
-*/
+
 
     }
 }
