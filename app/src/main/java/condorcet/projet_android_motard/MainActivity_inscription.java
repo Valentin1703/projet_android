@@ -26,6 +26,7 @@ public class MainActivity_inscription extends AppCompatActivity {
     EditText edemail = null;
     Button buttonInscription;
     private MInterface restInt;
+    private String url = "https://apex.oracle.com/pls/apex/valentin_workspace/gpos";/*votre repository/votre module";*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -38,7 +39,7 @@ public class MainActivity_inscription extends AppCompatActivity {
         edemail = (EditText)findViewById(R.id.edemail);
         edmdp =(EditText)findViewById(R.id.edmdp);
         buttonInscription = (Button)findViewById(R.id.btn_inscription);
-        RestAdapter radapter= new RestAdapter.Builder().setEndpoint(MInterface.WEBSERVICEURL).build();
+        RestAdapter radapter= new RestAdapter.Builder().setEndpoint(url).build();
         restInt=radapter.create(MInterface.class);
     }
 

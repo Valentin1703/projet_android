@@ -20,11 +20,12 @@ public class MainActivity_connexion extends AppCompatActivity {
    private EditText edemail;
     private EditText edpassword;
    // int nid=0;
+  Globals g = Globals.getInstance();
 
 
     private MInterface restInt;
     private String url="https://apex.oracle.com/pls/apex/valentin_workspace/gmot";/*votre repository/votre module";*/
-    //private Motard motard;
+    private Motard motard;
 
 
 
@@ -49,7 +50,7 @@ public class MainActivity_connexion extends AppCompatActivity {
         String mail = edemail.getText().toString();
         String mdp = edpassword.getText().toString();
 
-       // final Motard motard = new Motard(mail,mdp);
+         // final Motard motard = new Motard(mail,mdp);
 
 
             restInt.connection_motard(mail,mdp, new Callback<Motard>() {
@@ -61,7 +62,7 @@ public class MainActivity_connexion extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Connexion  ok ", Toast.LENGTH_LONG).show();
                    // edemail.setText(String.valueOf(motard.getId_motard()));
                     Intent i = new Intent(MainActivity_connexion.this, MainActivity.class);
-
+                   g.setData(motard.getId_motard());
                     startActivity(i);
 
 
