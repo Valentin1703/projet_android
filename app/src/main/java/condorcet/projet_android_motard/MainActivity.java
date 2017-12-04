@@ -232,7 +232,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickMesZones(View v)
     {
-        Intent y = new Intent(MainActivity.this,MainActivity_mes_zones.class);
+        Intent y = new Intent(MainActivity.this, MainActivity_mes_zones.class);
         startActivity(y);
     }
 
