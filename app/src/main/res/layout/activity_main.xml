@@ -4,21 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/route2"
     tools:context="condorcet.projet_android_motard.MainActivity">
 
     <Button
         android:id="@+id/btn_save_gps"
-        android:layout_width="229dp"
-        android:layout_height="266dp"
-        android:layout_marginStart="76dp"
-        android:layout_marginLeft="76dp"
-        android:layout_marginTop="192dp"
-        android:background="@color/colorPrimaryDark"
-
-        android:text="Enregistrer la postition"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/round_button"
+        android:onClick="clickEnregistrer"
+        android:text="enregistrer la position"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />;
+
     android:onClick="clickEnregistrer"
 
     app:layout_constraintStart_toStartOf="parent"
@@ -27,6 +27,7 @@
     <RadioGroup
         android:layout_width="385dp"
         android:layout_height="192dp"
+        android:layout_marginTop="312dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -41,7 +42,7 @@
         <Button
             android:id="@+id/btn_inscription"
             android:layout_width="match_parent"
-            android:layout_height="85dp"
+            android:layout_height="88dp"
             android:layout_weight="1"
             android:onClick="clickInscription"
             android:text="Inscription" />
@@ -49,18 +50,19 @@
         <Button
             android:id="@+id/btn_liste_zone"
             android:layout_width="match_parent"
-            android:layout_height="74dp"
+            android:layout_height="88dp"
             android:layout_weight="1"
             android:text="Zone dangereuse" />
 
         <Button
             android:id="@+id/btn_mesZones"
             android:layout_width="match_parent"
-            android:layout_height="72dp"
+            android:layout_height="88dp"
             android:layout_weight="1"
+            android:onClick="clickMesZones"
             android:text="Mes zones" />
 
-</RadioGroup>
+    </RadioGroup>
 
 
 </android.support.constraint.ConstraintLayout>

@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     Button inscription = null;
     Button connexion = null;
     Button enregistrer = null;
+    Button mesZones =null;
     private LocationManager locationManager;
     private Zone zone;
     private String url = "https://apex.oracle.com/pls/apex/valentin_workspace/gpos";/*votre repository/votre module";*/
@@ -39,14 +40,17 @@ public class MainActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        mesZones = (Button) findViewById(R.id.btn_mesZones);
         inscription = (Button) findViewById(R.id.btn_inscription);
         connexion = (Button) findViewById(R.id.btn_menu_connexion);
         enregistrer = (Button) findViewById(R.id.btn_save_gps);
+
+
         RestAdapter radapter= new RestAdapter.Builder().setEndpoint(url).build();
         restInt=radapter.create(MInterface.class);
 
@@ -68,16 +72,18 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<String> names = (ArrayList<String>) locationManager.getProviders(true);
         boolean gps = false;
 
-        for (String name : names) {
+        for (String name : names)
+        {
 
             if (name.equals(LocationManager.GPS_PROVIDER)) gps = true;
-            Log.d("position", name);
+            Log.d("LA POSITION GPS EST ", name);
         }
 
         if (!gps) Toast.makeText(this, "service gps indisponible", Toast.LENGTH_LONG).show();
 
-        else try {
-            //Toast.makeText(MainActivity.this, "service gps dispo", Toast.LENGTH_SHORT).show();
+        else try
+        {
+            Toast.makeText(MainActivity.this, "service gps dispo", Toast.LENGTH_SHORT).show();
 
             LocationListener myLocationListener = getLocationListener();
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, myLocationListener);
@@ -98,61 +104,55 @@ public class MainActivity extends AppCompatActivity {
 
         // recupere l'id du motard qui viens de ce connecter
         int id = g.getData();
-        Double tmpLong = 0.0;//c'était juste pour éviter les NullPointeurException
+        Double tmpLong=0.0;
         Double tmpLat =0.0;
 
 
-        if (onstart) {
 
-            try {
+        if (onstart)
+        {
+
+            try
+            {
+                Location location = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
                 locationManager = (LocationManager)getSystemService (Context.LOCATION_SERVICE);
                 //J'ai mit PASSIVE_PROVIDER à la palce GSP_PROVIDER au lieu de GSP_PROVIDER
-                Location location = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
-
 
                 tmpLong =  location.getLongitude();
                 tmpLat =  location.getLatitude();
                 Log.i("ONSTART BOUTON CLICK", " " + tmpLat + " " + tmpLong);
-
-
                 Toast.makeText(getApplicationContext(), "id du motard : " + id, Toast.LENGTH_LONG).show();
-
-
-
+                zone = new Zone(0, 0, 0,tmpLat , tmpLong);
             }
-
-
-
-            catch (SecurityException e) {
+            catch (SecurityException e)
+            {
                 e.printStackTrace();
             }
+        }
+        else
+        {
+            zone = new Zone(0, 0, 0,longitude , latitude);
 
+        }
 
+            double lati = zone.getPos_gps_lati();
+            double longi = zone.getPos_gps_long();
 
-        } else {
-
-
-            //Toast.makeText(getApplicationContext(), "pas de onstart ", Toast.LENGTH_LONG).show();
-
-            // Toast.makeText(getApplicationContext(), "erreur ", Toast.LENGTH_LONG).show();
-
-
-            final Zone zone = new Zone(0, id, 3, latitude, longitude);// id = 3 zone ""sans couleur"" 0 donne des soucis de contraintes
-            Log.i("BOUTON CLICK", " " + latitude + " " + longitude+" "+id);
-
-
-            //Toast.makeText(getApplicationContext(), "id du motard : " + id, Toast.LENGTH_LONG).show();
-
-            restInt.postZone(zone, new Callback<Object>() {
+            final Zone zone = new Zone(0   ,id,3    ,lati,longi);
+            // l'envoi fonctionne mais retourne internal erreur 500
+            // la pos s'enregistre correctement dans la bd
+            // la pos ne change pas si on se deplace ? a verifier
+            restInt.postZone(zone, new Callback<Object>()
+            {
 
                 @Override
-                // recupere l'id de la zone pr verifier si il c'est bien ajouté.  A supprimer plus tard
+
                 public void success(Object id, Response response) {
                     int nid = 0;
                     for (Header h : response.getHeaders()) {
-                        if (h.getName().equals("ID")) {
-                            nid = Integer.parseInt(h.getValue());
-                            break;
+                                if (h.getName().equals("ID")) {
+                                    nid = Integer.parseInt(h.getValue());
+                                    break;
                         }
                     }
 
@@ -161,9 +161,11 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 @Override
-                public void failure(RetrofitError error) {
+                public void failure(RetrofitError error)
+                {
                     String err = error.getMessage();
                     Toast.makeText(getApplicationContext(), err, Toast.LENGTH_LONG).show();
+                    Log.i("ONSTART BOUTON CLICK", "ENCULER latitude " + zone.getPos_gps_lati() + "longitude  " + zone.getPos_gps_long());
                 }
 
             });
@@ -178,14 +180,17 @@ public class MainActivity extends AppCompatActivity {
 
 
         }
-    }
 
 
-    LocationListener getLocationListener() {
-        return new LocationListener() {
+
+    LocationListener getLocationListener()
+    {
+        return new LocationListener()
+        {
 
             @Override
-            public void onLocationChanged(android.location.Location location) {
+            public void onLocationChanged(android.location.Location location)
+            {
                 onstart = false;
                 latitude =  location.getLatitude();
                 longitude =  location.getLongitude();
@@ -212,15 +217,23 @@ public class MainActivity extends AppCompatActivity {
 
 
     // intent
-    public void clickInscription(View v) {
+    public void clickInscription(View v)
+    {
         Intent i = new Intent(MainActivity.this, MainActivity_inscription.class);
         startActivity(i);
     }
 
-    public void clickConnexion(View v) {
+    public void clickConnexion(View v)
+    {
         Intent j = new Intent(MainActivity.this, MainActivity_connexion.class);
         startActivity(j);
 
+    }
+
+    public void clickMesZones(View v)
+    {
+        Intent i = new Intent(MainActivity.this,MainActivity_mes_zones.class);
+        startActivity(i);
     }
 
 }

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="condorcet.projet_android_motard.MainActivity_meszones_cellule">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="41dp">
+
+        <TextView
+            android:id="@+id/id_lati"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="latitude :" />
+
+        <TextView
+            android:id="@+id/id_longi"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="longitude :" />
+
+        <TextView
+            android:id="@+id/id_couleur"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="couleur :" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

@@ -11,7 +11,7 @@ import retrofit.http.Path;
 
 public interface MInterface {
 
-    public static final String WEBSERVICEURL = "https://apex.oracle.com/pls/apex/valentin_workspace/gmot";
+  //  public static final String WEBSERVICEURL = "https://apex.oracle.com/pls/apex/valentin_workspace/gmot";
 
    @POST("/creapos/")
     void postZone(@Body Zone zone, Callback<Object> id);
