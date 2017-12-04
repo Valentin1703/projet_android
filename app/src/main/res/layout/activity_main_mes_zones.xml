@@ -7,7 +7,7 @@
     tools:context="condorcet.projet_android_motard.MainActivity_mes_zones">
 
     <ListView
-        android:id="@+id/liste_zones"
+        android:id="@+id/liste_mes_zone"
         android:layout_width="294dp"
         android:layout_height="435dp"
         android:layout_marginStart="32dp"

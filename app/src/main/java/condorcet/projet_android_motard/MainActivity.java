@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     Button inscription = null;
     Button connexion = null;
     Button enregistrer = null;
+    Button mesZones =null;
     private LocationManager locationManager;
     private Zone zone;
     private String url = "https://apex.oracle.com/pls/apex/valentin_workspace/gpos";/*votre repository/votre module";*/
@@ -44,10 +45,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        mesZones = (Button) findViewById(R.id.btn_mesZones);
         inscription = (Button) findViewById(R.id.btn_inscription);
         connexion = (Button) findViewById(R.id.btn_menu_connexion);
         enregistrer = (Button) findViewById(R.id.btn_save_gps);
+
+
         RestAdapter radapter= new RestAdapter.Builder().setEndpoint(url).build();
         restInt=radapter.create(MInterface.class);
 
@@ -225,6 +228,12 @@ public class MainActivity extends AppCompatActivity {
         Intent j = new Intent(MainActivity.this, MainActivity_connexion.class);
         startActivity(j);
 
+    }
+
+    public void clickMesZones(View v)
+    {
+        Intent i = new Intent(MainActivity.this,MainActivity_mes_zones.class);
+        startActivity(i);
     }
 
 }

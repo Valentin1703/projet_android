@@ -10,5 +10,7 @@
     <string name="connexion">connexion</string>
     <string name="mdp">mdp</string>
 
+    <!-- Strings related to login -->
+
 
 </resources>
