@@ -26,7 +26,7 @@ public class MainActivity_inscription extends AppCompatActivity {
     EditText edemail = null;
     Button buttonInscription;
     private MInterface restInt;
-    private String url = "https://apex.oracle.com/pls/apex/valentin_workspace/gpos";/*votre repository/votre module";*/
+    private String url = "https://apex.oracle.com/pls/apex/valentin_workspace/gmot";/*votre repository/votre module";*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

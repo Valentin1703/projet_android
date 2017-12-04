@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
 
             try
             {
-                Location location = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
+                Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                 locationManager = (LocationManager)getSystemService (Context.LOCATION_SERVICE);
                 //J'ai mit PASSIVE_PROVIDER à la palce GSP_PROVIDER au lieu de GSP_PROVIDER
 
@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else
         {
-            zone = new Zone(0, 0, 0,longitude , latitude);
+            zone = new Zone(0, 0, 0,latitude , longitude);
 
         }
 
@@ -232,8 +232,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickMesZones(View v)
     {
-        Intent i = new Intent(MainActivity.this,MainActivity_mes_zones.class);
-        startActivity(i);
+        Intent y = new Intent(MainActivity.this,MainActivity_mes_zones.class);
+        startActivity(y);
     }
 
 }
