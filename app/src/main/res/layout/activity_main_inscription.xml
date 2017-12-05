@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context="condorcet.projet_android_motard.MainActivity_inscription">
 
     <LinearLayout
@@ -16,7 +17,7 @@
 
         <TextView
             android:id="@+id/lbmdp"
-            android:layout_width="wrap_content"
+            android:layout_width="65dp"
             android:layout_height="wrap_content"
             android:width="100sp"
             android:text="@string/mdp" />
@@ -44,7 +45,7 @@
 
         <TextView
             android:id="@+id/lbemail"
-            android:layout_width="wrap_content"
+            android:layout_width="65dp"
             android:layout_height="wrap_content"
             android:width="100sp"
             android:text="@string/email" />
@@ -83,7 +84,7 @@
 
         <TextView
             android:id="@+id/lbnom"
-            android:layout_width="wrap_content"
+            android:layout_width="65dp"
             android:layout_height="wrap_content"
             android:width="100sp"
             android:text="@string/nom" />
@@ -111,7 +112,7 @@
 
         <TextView
             android:id="@+id/lbprenom"
-            android:layout_width="wrap_content"
+            android:layout_width="65dp"
             android:layout_height="wrap_content"
             android:width="100sp"
             android:text="@string/prenom" />
@@ -139,7 +140,7 @@
 
         <TextView
             android:id="@+id/lbadr"
-            android:layout_width="wrap_content"
+            android:layout_width="65dp"
             android:layout_height="wrap_content"
             android:width="100sp"
             android:text="@string/adresse" />

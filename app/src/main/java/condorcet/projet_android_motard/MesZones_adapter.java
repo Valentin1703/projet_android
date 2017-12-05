@@ -21,13 +21,13 @@ public class MesZones_adapter extends ArrayAdapter<Zone>{
         super(context, resource);
     }
 
-/*
+
     public View getView(int position, @Nullable View converView, @Nullable ViewGroup parent)
     {
         View v;
         LayoutInflater layoutInflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        v=layoutInflater.inflate(R.layout.activity_main__meszones_cellule,null);
+        v=layoutInflater.inflate(R.layout.activity_main_meszones_cellule,null);
 
         Zone currentZone = getItem(position);
 
@@ -43,5 +43,5 @@ public class MesZones_adapter extends ArrayAdapter<Zone>{
     }
 
 
-*/
+
 }

@@ -2,10 +2,12 @@ package condorcet.projet_android_motard;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
 import javax.annotation.Generated;
 
- //@Generated("org.jsonschema2pojo");
 
+
+@Generated("org.jsonschema2pojo")
 public class Zone {
 
 

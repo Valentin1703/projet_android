@@ -50,7 +50,7 @@ public class MainActivity_connexion extends AppCompatActivity {
         String mail = edemail.getText().toString();
         String mdp = edpassword.getText().toString();
 
-         // final Motard motard = new Motard(mail,mdp);
+         //  final Motard motard = new Motard(mail,mdp);
 
 
             restInt.connection_motard(mail,mdp, new Callback<Motard>() {
@@ -60,9 +60,8 @@ public class MainActivity_connexion extends AppCompatActivity {
                 public void success(Motard motard, Response response) {
 
                     Toast.makeText(getApplicationContext(), "Connexion  ok ", Toast.LENGTH_LONG).show();
-                   // edemail.setText(String.valueOf(motard.getId_motard()));
                     Intent i = new Intent(MainActivity_connexion.this, MainActivity.class);
-                   g.setData(motard.getId_motard());
+                    g.setData(motard.getId_motard());
                     startActivity(i);
 
 

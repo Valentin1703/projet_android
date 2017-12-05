@@ -29,7 +29,6 @@
         <activity android:name=".MainActivity_inscription" />
         <activity android:name=".MainActivity_connexion" />
         <activity android:name=".MainActivity_mes_zones" />
-        <activity android:name=".MainActivity_meszones_cellule"></activity>
     </application>
 
 </manifest>

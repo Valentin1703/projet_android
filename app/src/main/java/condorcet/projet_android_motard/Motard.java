@@ -38,8 +38,12 @@ public class Motard {
         this.mdp = mdp;
     }
 
+    public Motard(String mail, String mdp) {
+        this.mail = mail;
+        this.mdp = mdp;
+    }
 
-  /*  public Motard(String mail, String adresse) {
+    /*  public Motard(String mail, String adresse) {
         this.mail = mail;
         this.adresse = adresse;
     }*/
