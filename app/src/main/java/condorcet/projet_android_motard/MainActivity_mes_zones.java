@@ -44,11 +44,24 @@ public class MainActivity_mes_zones extends AppCompatActivity {
                 List listZoneListView =  listZone.getItems();
                 adapter = new ArrayAdapter<String>(MainActivity_mes_zones.this,android.R.layout.simple_list_item_1,listZoneListView);
                 mesListe_Zone.setAdapter(adapter);
+
+                if(listZone.getItems().isEmpty()){
+                    Toast.makeText(getApplicationContext(), "Pas de zone ", Toast.LENGTH_LONG).show();
+
+
+                }
             }
 
             @Override
             public void failure(RetrofitError error)
             {
+
+                String err = error.getMessage();
+                Toast.makeText(getApplicationContext(), err, Toast.LENGTH_LONG).show();
+                Log.d("TEST: ","ERREUR: "+err);
+
+
+                Toast.makeText(getApplicationContext(), "fail ", Toast.LENGTH_LONG).show();
 
             }
         });
