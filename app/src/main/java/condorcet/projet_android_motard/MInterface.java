@@ -1,6 +1,8 @@
 package condorcet.projet_android_motard;
 
 
+import java.util.List;
+
 import retrofit.Callback;
 import retrofit.http.Body;
 import retrofit.http.GET;
@@ -23,7 +25,7 @@ public interface MInterface {
    // recupere toutes les zones en fonction de l'id envoyez
 
   @GET("/meszones/{id_motard}")
-    void getZoneByID(@Path("id") int id, Callback<Zone> zone);
+    void getZoneByID(@Path("id_motard") int id, Callback<ListZone> list);
 
   // crée un nouveau motard (inscription)
 
