@@ -86,13 +86,13 @@ public class Zone {
 
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "Zone{" +
-                "id_zone=" + id_zone +
-                ", id_couleur=" + id_couleur +
-                ", id_utilisateur=" + id_motard +
-                ", pos_gps_lati=" + pos_gps_lati +
-                ", pos_gps_long=" + pos_gps_long +
+
+                ", couleur :" + id_couleur +
+                ", latitude :" + pos_gps_lati +
+                ", longitude :" + pos_gps_long +
                 '}';
     }
 }

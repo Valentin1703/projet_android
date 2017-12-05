@@ -55,13 +55,17 @@ public class MainActivity_inscription extends AppCompatActivity {
         final Motard motard = new Motard(0,nom,prenom,email,adresse,password);
 
 
-        restInt.post_ajout_motard(motard, new Callback<Object>() {
+        restInt.post_ajout_motard(motard, new Callback<Object>()
+        {
 
             @Override
-            public void success(Object id, Response response) {
+            public void success(Object id, Response response)
+            {
                 int nid = 0;
-                for (Header h : response.getHeaders()) {
-                    if (h.getName().equals("ID")) {
+                for (Header h : response.getHeaders())
+                {
+                    if (h.getName().equals("ID"))
+                    {
                         nid = Integer.parseInt(h.getValue());
                         break;
                     }
@@ -73,7 +77,8 @@ public class MainActivity_inscription extends AppCompatActivity {
             }
 
             @Override
-            public void failure(RetrofitError error) {
+            public void failure(RetrofitError error)
+            {
                 String err = error.getMessage();
                 Toast.makeText(getApplicationContext(), err, Toast.LENGTH_LONG).show();
                 Toast.makeText(getApplicationContext(), "inscription fail", Toast.LENGTH_LONG).show();

@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     Location location = null; // location
     double latitude; // latitude
     double longitude; // longitude
+
     // The minimum distance to change Updates in meters
     private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 1; // 1 meters
 
@@ -72,7 +73,8 @@ public class MainActivity extends AppCompatActivity {
         //  vérifie les autorisations
 
         final CheckAutorisations checkPermissions = new CheckAutorisations(this);
-        if (!checkPermissions.hasPermissions()) {
+        if (!checkPermissions.hasPermissions())
+        {
             checkPermissions.askPermissions();
         }
 
@@ -80,38 +82,52 @@ public class MainActivity extends AppCompatActivity {
 
         enregistrer.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
                 isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
                 isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
-                try {
-                    if (!isGPSEnabled && !isNetworkEnabled) {
+                try
+                {
+                    if (!isGPSEnabled && !isNetworkEnabled)
+                    {
                         // no network provider is enabled
-                    } else {
+                    }
+                    else
+                    {
                         canGetLocation = true;
-                        if (isNetworkEnabled) {
-                            try {
+                        if (isNetworkEnabled)
+                        {
+                            try
+                            {
                                 locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,  MIN_TIME_BW_UPDATES,MIN_DISTANCE_CHANGE_FOR_UPDATES, locationListener());
-                            } catch (SecurityException e1) {
+                            } catch (SecurityException e1)
+                            {
                                 e1.printStackTrace();
                             }
                             Log.d("Network", "Network Enabled");
-                            if (locationManager != null) {
-                                try {
+                            if (locationManager != null)
+                            {
+                                try
+                                {
                                     location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
                                 } catch (SecurityException e1) {
                                     e1.printStackTrace();
                                 }
-                                if (location != null) {
+                                if (location != null)
+                                {
                                     latitude = location.getLatitude();
                                     longitude = location.getLongitude();
                                 }
                             }
                         }
                         // if GPS Enabled get lat/long using GPS Services
-                        if (isGPSEnabled) {
-                            if (location == null) {
-                                try {
+                        if (isGPSEnabled)
+                        {
+                            if (location == null)
+                            {
+                                try
+                                {
                                     locationManager.requestLocationUpdates(
                                             LocationManager.GPS_PROVIDER,
                                             MIN_TIME_BW_UPDATES,
@@ -120,14 +136,17 @@ public class MainActivity extends AppCompatActivity {
                                     e1.printStackTrace();
                                 }
                                 Log.d("GPS", "GPS Enabled");
-                                if (locationManager != null) {
-                                    try {
+                                if (locationManager != null)
+                                {
+                                    try
+                                    {
                                         location = locationManager
                                                 .getLastKnownLocation(LocationManager.GPS_PROVIDER);
                                     } catch (SecurityException e1) {
                                         e1.printStackTrace();
                                     }
-                                    if (location != null) {
+                                    if (location != null)
+                                    {
                                         latitude = location.getLatitude();
                                         longitude = location.getLongitude();
 
@@ -137,7 +156,8 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
 
-                } catch (Exception e) {
+                } catch (Exception e)
+                {
                     e.printStackTrace();
                 }
 
@@ -147,7 +167,8 @@ public class MainActivity extends AppCompatActivity {
                 restInt.postZone(zone, new Callback<Object>()
                 {
                     @Override
-                    public void success(Object id, Response response) {
+                    public void success(Object id, Response response)
+                    {
                         int nid = 0;
                         for (Header h : response.getHeaders()) {
                             if (h.getName().equals("ID")) {

@@ -1,8 +1,6 @@
 package condorcet.projet_android_motard;
 
-/**
- * Created by lafer on 05-12-17.
- */
+
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
