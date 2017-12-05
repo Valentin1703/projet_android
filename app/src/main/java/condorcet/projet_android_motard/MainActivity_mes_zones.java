@@ -1,5 +1,4 @@
 package condorcet.projet_android_motard;
-
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -45,11 +44,9 @@ public class MainActivity_mes_zones extends AppCompatActivity {
                 adapter = new ArrayAdapter<String>(MainActivity_mes_zones.this,android.R.layout.simple_list_item_1,listZoneListView);
                 mesListe_Zone.setAdapter(adapter);
             }
-
             @Override
             public void failure(RetrofitError error)
             {
-
             }
         });
     }
