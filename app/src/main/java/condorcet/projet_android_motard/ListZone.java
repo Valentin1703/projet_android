@@ -6,9 +6,6 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by lafer on 05-12-17.
- */
 
 public class ListZone {
     @SerializedName("items")

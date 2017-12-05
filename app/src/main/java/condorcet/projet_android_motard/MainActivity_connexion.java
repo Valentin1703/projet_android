@@ -43,14 +43,12 @@ public class MainActivity_connexion extends AppCompatActivity {
 
     }
 
-
-
     public void ConnMotard(View v){
 
         String mail = edemail.getText().toString();
         String mdp = edpassword.getText().toString();
 
-         //  final Motard motard = new Motard(mail,mdp);
+
 
 
             restInt.connection_motard(mail,mdp, new Callback<Motard>() {
@@ -78,12 +76,6 @@ public class MainActivity_connexion extends AppCompatActivity {
             });
 
         }
-
-
-
-
-
-
 
     }
 
