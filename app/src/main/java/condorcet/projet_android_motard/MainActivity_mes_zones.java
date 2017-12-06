@@ -23,7 +23,7 @@ import retrofit.client.Response;
 public class MainActivity_mes_zones extends AppCompatActivity {
 
     private ListZone mesZone;
-    private ListView mesListe_Zone;
+    public ListView mesListe_Zone;
     private String url="https://apex.oracle.com/pls/apex/valentin_workspace/gpos";
     Globals g = Globals.getInstance();
     int id = g.getData();
@@ -66,7 +66,8 @@ public class MainActivity_mes_zones extends AppCompatActivity {
                         /***Tunnel entre l'activité Recherche et AfficheContact**/
                         Intent i = new Intent(MainActivity_mes_zones.this, MainActivity_update_couleur.class);
                         /**Ajout du contact dans l'autre activité*/
-                        i.putExtra("MainActivity_mes_zones",String.valueOf(zone.toString()));
+                       // i.putExtra("MainActivity_mes_zones" ,String.valueOf(zone.toString()));
+                        i.putExtra("MainActivity_mes_zones" ,zone.toString());
                         /**demarrage de l'activité AfficheContact**/
                         startActivity(i);
 

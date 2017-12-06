@@ -14,13 +14,13 @@
         android:layout_marginStart="132dp"
         android:layout_marginTop="52dp"
         android:text="Choisir un couleur"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintBottom_toTopOf="@+id/TextZone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.041" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/TextZone"
         android:layout_width="338dp"
         android:layout_height="40dp"
         android:layout_marginStart="20dp"
@@ -39,25 +39,25 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <RadioButton
-            android:id="@+id/jaune"
+            android:id="@+id/Radiojaune"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="RadioButton" />
+            android:text="Jaune" />
 
         <RadioButton
-            android:id="@+id/rouge"
+            android:id="@+id/Radiorouge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="RadioButton" />
+            android:text="Rouge" />
 
         <RadioButton
-            android:id="@+id/noir"
+            android:id="@+id/Radionoir"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="RadioButton" />
+            android:text="Noir" />
 
     </RadioGroup>
 
@@ -93,11 +93,12 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonUpdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="120dp"
         android:layout_marginTop="36dp"
+        android:onClick="OnclickEnregistrer"
         android:text="Enregistrer"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
