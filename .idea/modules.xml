@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Projet_Janvier_motard.iml" filepath="$PROJECT_DIR$/Projet_Janvier_motard.iml" />
+      <module fileurl="file://C:\Users\krefel\Desktop\AndroidStudioProjects\projet_android\Projet_Janvier_motard.iml" filepath="C:\Users\krefel\Desktop\AndroidStudioProjects\projet_android\Projet_Janvier_motard.iml" />
       <module fileurl="file://C:\Users\valentin\Desktop\Projet android studio\projet_android\ValAndroid.iml" filepath="C:\Users\valentin\Desktop\Projet android studio\projet_android\ValAndroid.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\User\AndroidStudioProjects\Projet_Janvier_motard\projet_android.iml" filepath="C:\Users\User\AndroidStudioProjects\Projet_Janvier_motard\projet_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/projet_android.iml" filepath="$PROJECT_DIR$/projet_android.iml" />
       <module fileurl="file://D:\Dev\ValAndroid\projet_android.iml" filepath="D:\Dev\ValAndroid\projet_android.iml" />
+      <module fileurl="file://C:\Users\User\AndroidStudioProjects\Projet_Janvier_motard\projet_android.iml" filepath="C:\Users\User\AndroidStudioProjects\Projet_Janvier_motard\projet_android.iml" />
     </modules>
   </component>
 </project>

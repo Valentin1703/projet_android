@@ -8,10 +8,15 @@
 
     <ListView
         android:id="@+id/liste_mes_zone"
-        android:layout_width="294dp"
-        android:layout_height="435dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="68dp"
+        android:layout_width="189dp"
+        android:layout_height="395dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:choiceMode="singleChoice"
+        android:clickable="true"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+    </ListView>
+
 </android.support.constraint.ConstraintLayout>
