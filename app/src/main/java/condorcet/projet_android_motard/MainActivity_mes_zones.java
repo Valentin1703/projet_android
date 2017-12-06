@@ -1,8 +1,11 @@
 package condorcet.projet_android_motard;
+import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -54,29 +57,28 @@ public class MainActivity_mes_zones extends AppCompatActivity {
                 }
 
 
-/*
-public void success(ListeContactsApex lCont , Response response) {
+                mesListe_Zone.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-                if (!lCont.getItems().isEmpty()) {
-                    contacts = lCont;
-                    ArrayAdapter<ContactApex> adapter = new ArrayAdapter<ContactApex>(Recherche.this, android.R.layout.simple_list_item_1, contacts.getItems());
-                    liste_contact.setAdapter(adapter);
-                    liste_contact.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-                            //arg0:vue groupe,arg1 :vue cliquée,arg2 : position dans le groupe,arg3 : ide de la vue cliquée
-                            ContactApex c = (ContactApex) arg0.getItemAtPosition(arg2);
-                            /***Tunnel entre l'activité Recherche et AfficheContact**/
-               /* Intent i = new Intent(Recherche.this, AfficheContact.class);
-                /**Ajout du contact dans l'autre activité*/
-   /*             i.putExtra(CONTACT, c);
-                /**demarrage de l'activité AfficheContact**/
-   /*             startActivity(i);
-            }
-        });
+                    @Override
+                    public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 
-    }
- */
+                        Zone zone = (Zone) arg0.getItemAtPosition(arg2);
+                        /***Tunnel entre l'activité Recherche et AfficheContact**/
+                        Intent i = new Intent(MainActivity_mes_zones.this, MainActivity_update_couleur.class);
+                        /**Ajout du contact dans l'autre activité*/
+                        i.putExtra("MainActivity_mes_zones",String.valueOf(zone.toString()));
+                        /**demarrage de l'activité AfficheContact**/
+                        startActivity(i);
+
+                    }
+
+
+                });
+
+
+
+
+
 
 
 

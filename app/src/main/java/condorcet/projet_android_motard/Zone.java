@@ -44,6 +44,13 @@ public class Zone {
         this.pos_gps_long = pos_gps_long;
     }
 
+
+    public Zone(int id_couleur, Double pos_gps_lati, Double pos_gps_long) {
+        this.id_couleur = id_couleur;
+        this.pos_gps_lati = pos_gps_lati;
+        this.pos_gps_long = pos_gps_long;
+    }
+
     public int getId_zone() {
         return id_zone;
     }
