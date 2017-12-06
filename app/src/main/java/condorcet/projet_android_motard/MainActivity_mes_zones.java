@@ -2,6 +2,7 @@ package condorcet.projet_android_motard;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -40,16 +41,43 @@ public class MainActivity_mes_zones extends AppCompatActivity {
             @Override
             public void success(ListZone listZone, Response response)
             {
-                List listZoneListView =  listZone.getItems();
-                adapter = new ArrayAdapter<String>(MainActivity_mes_zones.this,android.R.layout.simple_list_item_1,listZoneListView);
-                mesListe_Zone.setAdapter(adapter);
 
                 if(listZone.getItems().isEmpty()){
                     Toast.makeText(getApplicationContext(), "Vous n'avez acune zone", Toast.LENGTH_LONG).show();
-
-
+                }
+                else
+                {
+                    List listZoneListView = listZone.getItems();
+                    adapter = new ArrayAdapter<String>(MainActivity_mes_zones.this, android.R.layout.simple_list_item_1, listZoneListView);
+                    mesListe_Zone.setAdapter(adapter);
 
                 }
+
+
+/*
+public void success(ListeContactsApex lCont , Response response) {
+
+                if (!lCont.getItems().isEmpty()) {
+                    contacts = lCont;
+                    ArrayAdapter<ContactApex> adapter = new ArrayAdapter<ContactApex>(Recherche.this, android.R.layout.simple_list_item_1, contacts.getItems());
+                    liste_contact.setAdapter(adapter);
+                    liste_contact.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+                            //arg0:vue groupe,arg1 :vue cliquée,arg2 : position dans le groupe,arg3 : ide de la vue cliquée
+                            ContactApex c = (ContactApex) arg0.getItemAtPosition(arg2);
+                            /***Tunnel entre l'activité Recherche et AfficheContact**/
+               /* Intent i = new Intent(Recherche.this, AfficheContact.class);
+                /**Ajout du contact dans l'autre activité*/
+   /*             i.putExtra(CONTACT, c);
+                /**demarrage de l'activité AfficheContact**/
+   /*             startActivity(i);
+            }
+        });
+
+    }
+ */
+
 
 
             }
