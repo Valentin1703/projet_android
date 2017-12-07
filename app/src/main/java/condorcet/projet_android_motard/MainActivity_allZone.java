@@ -69,7 +69,6 @@ public class MainActivity_allZone extends AppCompatActivity {
 
                         i.putExtra("MainActivity_allZone" ,zone.toString());
 
-
                         startActivity(i);
 
                     }
