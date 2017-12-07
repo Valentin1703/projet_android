@@ -66,7 +66,9 @@ public class MainActivity_update_couleur extends AppCompatActivity
 
     public void OnclickEnregistrer(View v){
 
+        // lagitude et longitude on peut laisser a 0 0, l'update ne pas les prendre en compte
         final Zone zone = new Zone(id_zone,id_mot, 0,0.0,0.0);
+
 
 
  restInt.update_zone(zone, new Callback<Object>(){
