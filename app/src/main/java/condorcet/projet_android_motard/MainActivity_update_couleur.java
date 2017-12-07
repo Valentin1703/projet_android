@@ -28,7 +28,7 @@ public class MainActivity_update_couleur extends AppCompatActivity
     Double lati;
     Double longi;
     int id_mot;
-    int id_zone;
+    int id_zone=0;
     int new_id_couleur;
     //Zone zone;
     private MInterface restInt;
@@ -52,10 +52,9 @@ public class MainActivity_update_couleur extends AppCompatActivity
         // zone=i.getParcelableExtra("MainActivity_mes_zones".valueOf(zone.toString()));
         champdeZone.setText(getIntent().getSerializableExtra("MainActivity_mes_zones").toString());
         id_mot =g.getData();
-        //id_zone=getIntent().getSerializableExtra("MainActivity_mes_zones").toString().
-        //Zone zone = new Zone (getIntent().getSerializableExtra("MainActivity_mes_zones").toString());
-
-        //Toast.makeText(getApplicationContext(),"Id de la couleur :"+zone.getId_couleur(), Toast.LENGTH_LONG).show();
+        id_zone= Integer.parseInt(getIntent().getSerializableExtra("MainActivity_mes_zones2").toString());
+        //Zone zone = new Zone (getIntent().getSerializableExtra("MainActivity_mes_zones").toString())
+        Toast.makeText(getApplicationContext(),"Id de la zone :"+id_zone, Toast.LENGTH_LONG).show();
 
 
 
@@ -67,7 +66,7 @@ public class MainActivity_update_couleur extends AppCompatActivity
 
     public void OnclickEnregistrer(View v){
 
-        final Zone zone = new Zone(0,id_mot, 0,0.0,0.0);
+        final Zone zone = new Zone(id_zone,id_mot, 0,0.0,0.0);
 
 
  restInt.update_zone(zone, new Callback<Object>(){

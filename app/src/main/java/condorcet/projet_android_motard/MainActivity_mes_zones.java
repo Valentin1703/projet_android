@@ -67,6 +67,7 @@ public class MainActivity_mes_zones extends AppCompatActivity {
                         Intent i = new Intent(MainActivity_mes_zones.this, MainActivity_update_couleur.class);
 
                         i.putExtra("MainActivity_mes_zones" ,zone.toString());
+                        i.putExtra("MainActivity_mes_zones2" ,zone.getId_zone());
 
                         startActivity(i);
 
