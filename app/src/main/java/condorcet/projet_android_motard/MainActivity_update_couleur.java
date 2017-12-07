@@ -52,8 +52,11 @@ public class MainActivity_update_couleur extends AppCompatActivity
         // zone=i.getParcelableExtra("MainActivity_mes_zones".valueOf(zone.toString()));
         champdeZone.setText(getIntent().getSerializableExtra("MainActivity_mes_zones").toString());
         id_mot =g.getData();
+
+        //recuperer juste l'id de la zone, qu'il faut convertir en int
         id_zone= Integer.parseInt(getIntent().getSerializableExtra("MainActivity_mes_zones2").toString());
-        //Zone zone = new Zone (getIntent().getSerializableExtra("MainActivity_mes_zones").toString())
+
+        //affiche bien l'id de la zone selectionnée :)
         Toast.makeText(getApplicationContext(),"Id de la zone :"+id_zone, Toast.LENGTH_LONG).show();
 
 
@@ -66,7 +69,7 @@ public class MainActivity_update_couleur extends AppCompatActivity
 
     public void OnclickEnregistrer(View v){
 
-        // lagitude et longitude on peut laisser a 0 0, l'update ne pas les prendre en compte
+        // lagitude et longitude on peut laisser a 0 0, l'update ne vas pas les prendre en compte
         final Zone zone = new Zone(id_zone,id_mot, 0,0.0,0.0);
 
 
