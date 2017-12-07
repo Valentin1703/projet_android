@@ -51,6 +51,8 @@ public class Zone {
         this.pos_gps_long = pos_gps_long;
     }
 
+    
+
     public int getId_zone() {
         return id_zone;
     }
@@ -96,7 +98,7 @@ public class Zone {
     public String toString()
     {
         return "Zone{" +
-
+                ", zone :" + id_zone +
                 ", couleur :" + id_couleur +
                 ", latitude :" + pos_gps_lati +
                 ", longitude :" + pos_gps_long +

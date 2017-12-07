@@ -7,6 +7,7 @@ import retrofit.Callback;
 import retrofit.http.Body;
 import retrofit.http.GET;
 import retrofit.http.POST;
+import retrofit.http.PUT;
 import retrofit.http.Path;
 
 
@@ -38,6 +39,9 @@ public interface MInterface {
 
     @GET("/connmot/{email}-{password}")
     void connection_motard(@Path("email") String email,@Path("password")String password, Callback<Motard> motard);
+
+    @PUT("/updatezone/{id_zone}")
+    void update_zone(@Body Zone zone, Callback<Object> id);
 
 
     // select * from zone
