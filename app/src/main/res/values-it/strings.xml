@@ -10,4 +10,6 @@
     <string name="email">email</string>
     <string name="connexion">collegamento</string>
     <string name="mdp">password</string>
+    <string name="ma_liste">" la mia lista"</string>
+    <string name="titre_all_zone">Aree pericolose</string>
 </resources>

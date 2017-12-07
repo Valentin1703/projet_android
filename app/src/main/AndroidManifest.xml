@@ -29,7 +29,8 @@
         <activity android:name=".MainActivity_inscription" />
         <activity android:name=".MainActivity_connexion" />
         <activity android:name=".MainActivity_mes_zones" />
-        <activity android:name=".MainActivity_update_couleur"></activity>
+        <activity android:name=".MainActivity_update_couleur" />
+        <activity android:name=".MainActivity_allZone"></activity>
     </application>
 
 </manifest>

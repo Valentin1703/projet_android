@@ -21,7 +21,6 @@ public class MainActivity_update_couleur extends AppCompatActivity
     RadioButton Rjaune;
     RadioButton Rrouge;
     RadioButton Rnoir;
-    //Zone zone;
     private MInterface restInt;
     private String url="https://apex.oracle.com/pls/apex/valentin_workspace/gpos";/*votre repository/votre module";*/
 
@@ -37,9 +36,7 @@ public class MainActivity_update_couleur extends AppCompatActivity
         Rrouge = (RadioButton) findViewById(R.id.Radiorouge);
         Rnoir = (RadioButton) findViewById(R.id.Radiorouge);
 
-         //Intent i=
-         //String rech = i.getParcelableExtra(Recherche.
-        // zone=i.getParcelableExtra("MainActivity_mes_zones".valueOf(zone.toString()));
+
 
         champdeZone.setText(getIntent().getSerializableExtra("MainActivity_mes_zones").toString());
 
@@ -50,21 +47,7 @@ public class MainActivity_update_couleur extends AppCompatActivity
 
 
     }
-
-
-
-
     public void OnclickEnregistrer(View v){
-
-
-
-
     }
-
-
-
-
-
-
 
 }

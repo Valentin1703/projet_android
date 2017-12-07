@@ -51,6 +51,7 @@
             android:layout_width="match_parent"
             android:layout_height="88dp"
             android:layout_weight="1"
+            android:onClick="clickAllZones"
             android:text="Zone dangereuse" />
 
         <Button

@@ -71,7 +71,7 @@ public class MainActivity_connexion extends AppCompatActivity {
                 public void failure(RetrofitError error) {
                     String err = error.getMessage();
                     Toast.makeText(getApplicationContext(), err, Toast.LENGTH_LONG).show();
-                    Toast.makeText(getApplicationContext(), "connexion fail ", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Echec de la connexion ", Toast.LENGTH_LONG).show();
 
                 }
             });

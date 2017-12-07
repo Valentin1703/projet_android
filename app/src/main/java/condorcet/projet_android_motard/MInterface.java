@@ -40,6 +40,14 @@ public interface MInterface {
     void connection_motard(@Path("email") String email,@Path("password")String password, Callback<Motard> motard);
 
 
+    // select * from zone
+    // readall de la table zone
+
+
+    @GET("/readall/")
+    void getAllZone(Callback<ListZone> list);
+
+
 
 }
 

@@ -63,12 +63,11 @@ public class MainActivity_mes_zones extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 
                         Zone zone = (Zone) arg0.getItemAtPosition(arg2);
-                        /***Tunnel entre l'activité Recherche et AfficheContact**/
+
                         Intent i = new Intent(MainActivity_mes_zones.this, MainActivity_update_couleur.class);
-                        /**Ajout du contact dans l'autre activité*/
-                       // i.putExtra("MainActivity_mes_zones" ,String.valueOf(zone.toString()));
+
                         i.putExtra("MainActivity_mes_zones" ,zone.toString());
-                        /**demarrage de l'activité AfficheContact**/
+
                         startActivity(i);
 
                     }
@@ -90,7 +89,6 @@ public class MainActivity_mes_zones extends AppCompatActivity {
                 String err = error.getMessage();
                 Toast.makeText(getApplicationContext(), err, Toast.LENGTH_LONG).show();
                 Log.d("TEST: ","ERREUR: "+err);
-
 
                 Toast.makeText(getApplicationContext(), "fail ", Toast.LENGTH_LONG).show();
 

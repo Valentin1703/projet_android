@@ -182,7 +182,8 @@ public class MainActivity extends AppCompatActivity {
                     public void failure(RetrofitError error)
                     {
                         String err = error.getMessage();
-                        Toast.makeText(getApplicationContext(), err, Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "veuillez vous connecter", Toast.LENGTH_LONG).show();
+                       // Toast.makeText(getApplicationContext(), err, Toast.LENGTH_LONG).show();
                         Log.i("ONSTART BOUTON CLICK", " latitude " + zone.getPos_gps_lati() + "longitude  " + zone.getPos_gps_long());
                     }
                 });
@@ -206,6 +207,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickMesZones(View v) {
         Intent y = new Intent(MainActivity.this, MainActivity_mes_zones.class);
+        startActivity(y);
+    }
+
+    public void clickAllZones(View v)
+    {
+        Intent y = new Intent(MainActivity.this,MainActivity_allZone.class);
         startActivity(y);
     }
 

@@ -10,4 +10,6 @@
     <string name="email">"e-mail "</string>
     <string name="connexion">verbinding</string>
     <string name="mdp">wachtwoord</string>
+    <string name="ma_liste">mijn lijst</string>
+    <string name="titre_all_zone">Gevaarlijke gebieden</string>
 </resources>

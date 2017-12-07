@@ -80,8 +80,8 @@ public class MainActivity_inscription extends AppCompatActivity {
             public void failure(RetrofitError error)
             {
                 String err = error.getMessage();
-                Toast.makeText(getApplicationContext(), err, Toast.LENGTH_LONG).show();
-                Toast.makeText(getApplicationContext(), "inscription fail", Toast.LENGTH_LONG).show();
+        //        Toast.makeText(getApplicationContext(), err, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "inscription impossible, veuillez remplir tout les champs", Toast.LENGTH_LONG).show();
             }
 
         });

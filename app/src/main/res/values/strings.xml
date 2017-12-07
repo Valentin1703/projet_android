@@ -9,7 +9,8 @@
     <string name="email">email</string>
     <string name="connexion">connexion</string>
     <string name="mdp">mdp</string>
-
+    <string name="ma_liste">ma liste</string>
+    <string name="titre_all_zone">Zones dangereuse</string>
     <!-- Strings related to login -->
 
 
