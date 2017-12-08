@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/route2"
+    tools:context="condorcet.projet_android_motard.MainActivity">
+
+    <Button
+        android:id="@+id/btn_save_gps"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/round_button"
+        android:text="enregistrer la position"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />;
+
+    android:onClick="clickEnregistrer"
+
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:layout_width="304dp"
+        android:layout_height="155dp"
+        android:layout_marginStart="272dp"
+        android:layout_marginTop="76dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/btn_menu_connexion"
+            android:layout_width="match_parent"
+            android:layout_height="88dp"
+            android:layout_weight="1"
+            android:onClick="clickConnexion"
+            android:text="Connexion" />
+
+        <Button
+            android:id="@+id/btn_inscription"
+            android:layout_width="match_parent"
+            android:layout_height="88dp"
+            android:layout_weight="1"
+            android:onClick="clickInscription"
+            android:text="Inscription" />
+
+        <Button
+            android:id="@+id/btn_liste_zone"
+            android:layout_width="match_parent"
+            android:layout_height="88dp"
+            android:layout_weight="1"
+            android:onClick="clickAllZones"
+            android:text="Zone dangereuse" />
+
+        <Button
+            android:id="@+id/btn_mesZones"
+            android:layout_width="match_parent"
+            android:layout_height="88dp"
+            android:layout_weight="1"
+            android:onClick="clickMesZones"
+            android:text="Mes zones" />
+
+    </RadioGroup>
+
+
+</android.support.constraint.ConstraintLayout>

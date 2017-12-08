@@ -97,12 +97,10 @@ public class Zone {
     @Override
     public String toString()
     {
-        return "Zone{" +
-                ", zone :" + id_zone +
-                ", couleur :" + id_couleur +
-                ", latitude :" + pos_gps_lati +
-                ", longitude :" + pos_gps_long +
-                '}';
+        return  "la zone n°" + id_zone +
+                " de couleur : " + id_couleur +
+                " à pour latitude : " + pos_gps_lati +
+                " et longitude : " + pos_gps_long;
     }
 }
 

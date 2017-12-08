@@ -182,8 +182,8 @@ public class MainActivity extends AppCompatActivity {
                     public void failure(RetrofitError error)
                     {
                         String err = error.getMessage();
-                        Toast.makeText(getApplicationContext(), "veuillez vous connecter", Toast.LENGTH_LONG).show();
-                       // Toast.makeText(getApplicationContext(), err, Toast.LENGTH_LONG).show();
+                      //  Toast.makeText(getApplicationContext(), "veuillez vous connectez", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), err, Toast.LENGTH_LONG).show();
                         Log.i("ONSTART BOUTON CLICK", " latitude " + zone.getPos_gps_lati() + "longitude  " + zone.getPos_gps_long());
                     }
                 });
