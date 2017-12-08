@@ -40,7 +40,7 @@ public interface MInterface {
     @GET("/connmot/{email}-{password}")
     void connection_motard(@Path("email") String email,@Path("password")String password, Callback<Motard> motard);
 
-    @PUT("/updatezone/{id_zone}")
+    @POST("/updatezone/")
     void update_zone(@Body Zone zone, Callback<Object> id);
 
 

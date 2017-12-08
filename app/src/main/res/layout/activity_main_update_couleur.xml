@@ -35,6 +35,8 @@
         android:layout_height="152dp"
         android:layout_marginStart="44dp"
         android:layout_marginTop="232dp"
+        android:checkedButton="@+id/Radiojaune"
+        android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -43,21 +45,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Jaune" />
+            android:text="Jaune"
+            android:onClick="onRadioButtonClicked"/>
 
         <RadioButton
             android:id="@+id/Radiorouge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Rouge" />
+            android:text="Rouge"
+            android:onClick="onRadioButtonClicked"/>
+
 
         <RadioButton
             android:id="@+id/Radionoir"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Noir" />
+            android:text="Noir"
+            android:onClick="onRadioButtonClicked"/>
 
     </RadioGroup>
 

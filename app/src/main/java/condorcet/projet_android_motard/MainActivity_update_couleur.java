@@ -29,7 +29,7 @@ public class MainActivity_update_couleur extends AppCompatActivity
     Double longi;
     int id_mot;
     int id_zone=0;
-    int new_id_couleur;
+    int new_id_couleur=3;
     //Zone zone;
     private MInterface restInt;
     private String url="https://apex.oracle.com/pls/apex/valentin_workspace/gpos";/*votre repository/votre module";*/
@@ -56,6 +56,10 @@ public class MainActivity_update_couleur extends AppCompatActivity
         //recuperer juste l'id de la zone, qu'il faut convertir en int
         id_zone= Integer.parseInt(getIntent().getSerializableExtra("MainActivity_mes_zones2").toString());
 
+        lati= Double.valueOf(getIntent().getSerializableExtra("MainActivity_mes_zones3").toString());
+
+        longi= Double.valueOf(getIntent().getSerializableExtra("MainActivity_mes_zones4").toString());
+
         //affiche bien l'id de la zone selectionnée :)
         Toast.makeText(getApplicationContext(),"Id de la zone :"+id_zone, Toast.LENGTH_LONG).show();
 
@@ -65,12 +69,45 @@ public class MainActivity_update_couleur extends AppCompatActivity
     }
 
 
+    public void onRadioButtonClicked(View v) {
+
+
+        boolean checked = ((RadioButton) v).isChecked();
+
+        switch(v.getId()) {
+            case R.id.Radiojaune:
+                if (checked)
+                    new_id_couleur=1;
+                break;
+            case R.id.Radiorouge:
+                if (checked)
+
+                    new_id_couleur=6;
+                break;
+
+            case R.id.Radionoir:
+                if (checked)
+                    new_id_couleur=2;
+
+                break;
+
+
+
+        }
+
+
+
+    }
+
+
+
+
 
 
     public void OnclickEnregistrer(View v){
 
-        // lagitude et longitude on peut laisser a 0 0, l'update ne vas pas les prendre en compte
-        final Zone zone = new Zone(id_zone,id_mot, 0,0.0,0.0);
+
+        final Zone zone = new Zone(id_zone,id_mot,new_id_couleur,lati,longi);
 
 
 
@@ -79,6 +116,9 @@ public class MainActivity_update_couleur extends AppCompatActivity
 
      @Override
      public void success(Object o, Response response) {
+
+
+
          Toast.makeText(getApplicationContext(),"Votre zone est validé", Toast.LENGTH_LONG).show();
 
      }
@@ -88,7 +128,7 @@ public class MainActivity_update_couleur extends AppCompatActivity
 
          String err = error.getMessage();
          Toast.makeText(getApplicationContext(), err, Toast.LENGTH_LONG).show();
-         Toast.makeText(getApplicationContext(), "Une erreur est survenu", Toast.LENGTH_LONG).show();
+         Toast.makeText(getApplicationContext(), "Une erreur est survenu: "+new_id_couleur, Toast.LENGTH_LONG).show();
 
 
      }

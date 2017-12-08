@@ -71,6 +71,12 @@ public class MainActivity_mes_zones extends AppCompatActivity {
                         //envoie juste l'id dans un toString aussi
                         i.putExtra("MainActivity_mes_zones2" ,zone.getId_zone());
 
+                        //envoie de la latiude
+                        i.putExtra("MainActivity_mes_zones3" ,zone.getPos_gps_lati());
+
+                        //envoie de la longitude
+                        i.putExtra("MainActivity_mes_zones4" ,zone.getPos_gps_long());
+
                         startActivity(i);
 
                     }
