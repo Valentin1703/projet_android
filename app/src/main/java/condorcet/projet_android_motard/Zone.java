@@ -97,8 +97,29 @@ public class Zone {
     @Override
     public String toString()
     {
+        String couleur2 = null;
+
+        if(id_couleur==3)
+        {
+            couleur2="Couleur du danger non défini";
+        }
+        else if(id_couleur==1)
+        {
+            couleur2="jaune";
+        }
+        else if(id_couleur==2)
+        {
+            couleur2="noir";
+        }
+        else if (id_couleur==6)
+        {
+            couleur2="rouge";
+        }
+
+
+
         return  "la zone n°" + id_zone +
-                " de couleur : " + id_couleur +
+                " de couleur : " + couleur2 +
                 " à pour latitude : " + pos_gps_lati +
                 " et longitude : " + pos_gps_long;
     }

@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Projet_android_motard</string>
-    <string name="nom">last name</string>
-    <string name="prenom">first name</string>
-    <string name="adresse">adress</string>
+    <string name="nom">Last name</string>
+    <string name="prenom">First name</string>
+    <string name="adresse">Adress</string>
     <string name="envoi">Send</string>
-    <string name="inscription">sign up</string>
-    <string name="enregistrer">save</string>
-    <string name="email">email</string>
-    <string name="connexion">sign in</string>
-    <string name="mdp">password</string>
-    <string name="ma_liste">" my list"</string>
+    <string name="inscription">Sign up</string>
+    <string name="enregistrer">Save</string>
+    <string name="email">Email</string>
+    <string name="connexion">Sign in</string>
+    <string name="mdp">Password</string>
+    <string name="ma_liste">" My list"</string>
     <string name="titre_all_zone">Dangerous areas</string>
+    <string name="enregistrer_position">Save position</string>
 </resources>

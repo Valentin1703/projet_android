@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Projet_android_motard</string>
-    <string name="nom">naam</string>
+    <string name="nom">Naam</string>
     <string name="prenom">Voornaam</string>
-    <string name="adresse">adres</string>
-    <string name="envoi">verzending</string>
+    <string name="adresse">Adres</string>
+    <string name="envoi">Verzending</string>
     <string name="inscription">inschrijving</string>
-    <string name="enregistrer">opnemen</string>
-    <string name="email">"e-mail "</string>
-    <string name="connexion">verbinding</string>
-    <string name="mdp">wachtwoord</string>
-    <string name="ma_liste">mijn lijst</string>
+    <string name="enregistrer">Opnemen</string>
+    <string name="email">"E-mail "</string>
+    <string name="connexion">Verbinding</string>
+    <string name="mdp">Wachtwoord</string>
+    <string name="ma_liste">Mijn lijst</string>
     <string name="titre_all_zone">Gevaarlijke gebieden</string>
+    <string name="enregistrer_position">Positie opslaan</string>
 </resources>
