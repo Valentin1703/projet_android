@@ -107,7 +107,7 @@ public class MainActivity_update_couleur extends AppCompatActivity
 
 
 
-                 Toast.makeText(getApplicationContext(),"Votre zone est validé", Toast.LENGTH_LONG).show();
+                 Toast.makeText(getApplicationContext(),"Votre zone est validée", Toast.LENGTH_LONG).show();
 
              }
 
@@ -117,7 +117,7 @@ public class MainActivity_update_couleur extends AppCompatActivity
 
                  String err = error.getMessage();
                  Toast.makeText(getApplicationContext(), err, Toast.LENGTH_LONG).show();
-                 Toast.makeText(getApplicationContext(), "Une erreur est survenu: "+new_id_couleur, Toast.LENGTH_LONG).show();
+                 Toast.makeText(getApplicationContext(), "Une erreur est survenue : "+new_id_couleur, Toast.LENGTH_LONG).show();
 
 
              }

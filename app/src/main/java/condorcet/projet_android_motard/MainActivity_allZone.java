@@ -49,7 +49,7 @@ public class MainActivity_allZone extends AppCompatActivity {
             {
 
                 if(listZone.getItems().isEmpty()){
-                    Toast.makeText(getApplicationContext(), "Aucune zone enregistrée par les users ", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Aucune zone enregistrée par les utilisateurs ", Toast.LENGTH_LONG).show();
                 }
                 else
                 {

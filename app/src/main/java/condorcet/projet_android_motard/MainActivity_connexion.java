@@ -58,7 +58,7 @@ public class MainActivity_connexion extends AppCompatActivity {
                 @Override
                 public void success(Motard motard, Response response) {
 
-                    Toast.makeText(getApplicationContext(), "Connexion  ok ", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Vous êtes connecté", Toast.LENGTH_LONG).show();
                     Intent i = new Intent(MainActivity_connexion.this, MainActivity.class);
                     g.setData(motard.getId_motard());
                     startActivity(i);

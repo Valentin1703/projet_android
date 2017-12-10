@@ -46,7 +46,7 @@ public class MainActivity_mes_zones extends AppCompatActivity {
             {
 
                 if(listZone.getItems().isEmpty()){
-                    Toast.makeText(getApplicationContext(), "Vous n'avez acune zone", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Vous n'avez aucune zone", Toast.LENGTH_LONG).show();
                 }
                 else
                 {

@@ -71,7 +71,7 @@ public class MainActivity_inscription extends AppCompatActivity {
                     }
                 }
 
-                Toast.makeText(getApplicationContext(),"Inscription ok", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Inscription enregistrée", Toast.LENGTH_LONG).show();
                 Intent i = new Intent(MainActivity_inscription.this, MainActivity.class);
                 startActivity(i);
             }
@@ -81,7 +81,7 @@ public class MainActivity_inscription extends AppCompatActivity {
             {
                 String err = error.getMessage();
         //        Toast.makeText(getApplicationContext(), err, Toast.LENGTH_LONG).show();
-                Toast.makeText(getApplicationContext(), "inscription impossible, veuillez remplir tout les champs", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Inscription impossible, veuillez remplir tous les champs", Toast.LENGTH_LONG).show();
             }
 
         });

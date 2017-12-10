@@ -176,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
                                 break;
                             }
                         }
-                        Toast.makeText(getApplicationContext(), "données gps enregistré dans mes zones ", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Données GPS enregistrées dans mes zones.", Toast.LENGTH_LONG).show();
                     }
                     @Override
                     public void failure(RetrofitError error)
