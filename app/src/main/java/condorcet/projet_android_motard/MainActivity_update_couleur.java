@@ -108,7 +108,8 @@ public class MainActivity_update_couleur extends AppCompatActivity
 
 
                  Toast.makeText(getApplicationContext(),"Votre zone est validée", Toast.LENGTH_LONG).show();
-
+                 Intent i = new Intent(MainActivity_update_couleur.this, MainActivity.class);
+                 startActivity(i);
              }
 
              @Override
@@ -122,6 +123,11 @@ public class MainActivity_update_couleur extends AppCompatActivity
 
              }
          }
+
+
+
+
+
          );
 
     }

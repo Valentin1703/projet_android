@@ -80,6 +80,19 @@ public class MainActivity extends AppCompatActivity {
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
+
+        if ( !locationManager.isProviderEnabled( LocationManager.GPS_PROVIDER ) )
+        {
+            Toast.makeText(getApplicationContext(),"Veuillez activé votre GPS", Toast.LENGTH_LONG).show();
+            enregistrer.setVisibility(View.INVISIBLE);
+        }
+        else
+        {
+            enregistrer.setVisibility(View.VISIBLE);
+        }
+
+
+
         enregistrer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
@@ -89,8 +102,9 @@ public class MainActivity extends AppCompatActivity {
                 isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
                 try
                 {
-                    if (!isGPSEnabled && !isNetworkEnabled)
+                    if ( !locationManager.isProviderEnabled( LocationManager.GPS_PROVIDER ) && !isNetworkEnabled )
                     {
+                        Toast.makeText(getApplicationContext(),"Veuillez activé votre GPS", Toast.LENGTH_LONG).show();
                         // no network provider is enabled
                     }
                     else
@@ -182,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
                     public void failure(RetrofitError error)
                     {
                         String err = error.getMessage();
-                      //  Toast.makeText(getApplicationContext(), "veuillez vous connectez", Toast.LENGTH_LONG).show();
+                      //   Toast.makeText(getApplicationContext(), "veuillez vous connectez", Toast.LENGTH_LONG).show();
                         Toast.makeText(getApplicationContext(), err, Toast.LENGTH_LONG).show();
                         Log.i("ONSTART BOUTON CLICK", " latitude " + zone.getPos_gps_lati() + "longitude  " + zone.getPos_gps_long());
                     }
@@ -205,7 +219,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void clickMesZones(View v) {
+    public void clickMesZones(View v)
+    {
+
+
+
+
+
         Intent y = new Intent(MainActivity.this, MainActivity_mes_zones.class);
         startActivity(y);
     }
