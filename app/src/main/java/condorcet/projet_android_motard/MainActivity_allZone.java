@@ -29,9 +29,6 @@ public class MainActivity_allZone extends AppCompatActivity {
     private MInterface restInt;
 
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
