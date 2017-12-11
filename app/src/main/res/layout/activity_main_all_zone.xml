@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/map"
     tools:context="condorcet.projet_android_motard.MainActivity_allZone">
 
     <ListView
