@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/colorPrimary"
+
     android:layout_height="match_parent"
+
     tools:context="condorcet.projet_android_motard.MainActivity_mes_zones">
 
     <ListView
@@ -22,15 +23,15 @@
     </ListView>
 
     <TextView
-        android:textColor="#000000"
         android:id="@+id/titre_liste"
-        android:layout_width="76dp"
-        android:layout_height="31dp"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="24dp"
-        android:text="mes listes"
+        android:layout_width="174dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/titre_liste"
+        android:textColor="#000000"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="136dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

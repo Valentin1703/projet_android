@@ -13,4 +13,5 @@
     <string name="ma_liste">Mijn lijst</string>
     <string name="titre_all_zone">Gevaarlijke gebieden</string>
     <string name="enregistrer_position">Positie opslaan</string>
+    <string name="titre_liste">mijn opgeslagen gebieden</string>
 </resources>

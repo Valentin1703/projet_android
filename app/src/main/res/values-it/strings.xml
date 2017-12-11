@@ -13,4 +13,5 @@
     <string name="ma_liste">" La mia lista"</string>
     <string name="titre_all_zone">Aree pericolose</string>
     <string name="enregistrer_position">Salva posizione</string>
+    <string name="titre_liste">" le mie aree salvate"</string>
 </resources>

@@ -13,4 +13,5 @@
     <string name="ma_liste">" Meine Liste"</string>
     <string name="titre_all_zone">Gefährliche Bereiche</string>
     <string name="enregistrer_position">Position speichern</string>
+    <string name="titre_liste">" meine gespeicherten Bereiche"</string>
 </resources>
