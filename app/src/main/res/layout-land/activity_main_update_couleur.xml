@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/route6"
     tools:context="condorcet.projet_android_motard.MainActivity_update_couleur">
 
     <TextView
@@ -14,6 +15,8 @@
         android:layout_marginStart="216dp"
         android:layout_marginTop="52dp"
         android:text="Choisir un couleur"
+        android:textColor="#FFFF"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/TextZone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,6 +27,8 @@
         android:layout_width="283dp"
         android:layout_height="38dp"
         android:layout_marginStart="140dp"
+        android:textColor="#FFFF"
+        android:textStyle="bold"
         android:layout_marginTop="80dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,6 +37,8 @@
     <TextView
         android:id="@+id/textView4"
         android:layout_width="120dp"
+        android:textColor="#FFFF"
+        android:textStyle="bold"
         android:layout_height="42dp"
         android:layout_marginStart="124dp"
         android:layout_marginTop="148dp"
@@ -43,6 +50,8 @@
         android:id="@+id/textView3"
         android:layout_width="121dp"
         android:layout_height="42dp"
+        android:textColor="#FFFF"
+        android:textStyle="bold"
         android:layout_marginStart="124dp"
         android:layout_marginTop="4dp"
         android:layout_weight="1"
@@ -55,6 +64,8 @@
         android:layout_width="121dp"
         android:layout_height="40dp"
         android:layout_marginStart="124dp"
+        android:textColor="#FFFF"
+        android:textStyle="bold"
         android:layout_marginTop="16dp"
         android:text="Dangereux"
         app:layout_constraintStart_toStartOf="@+id/radioGroup"
@@ -67,6 +78,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="132dp"
         android:checkedButton="@+id/Radiojaune"
+        android:textColor="#FFFF"
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -75,6 +87,8 @@
             android:id="@+id/Radiojaune"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#FFFF"
+            android:textStyle="bold"
             android:layout_weight="1"
             android:onClick="onRadioButtonClicked"
             android:text="Jaune" />
@@ -82,6 +96,8 @@
         <RadioButton
             android:id="@+id/Radiorouge"
             android:layout_width="wrap_content"
+            android:textColor="#FFFF"
+            android:textStyle="bold"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="onRadioButtonClicked"
@@ -93,6 +109,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textColor="#FFFF"
+            android:textStyle="bold"
             android:onClick="onRadioButtonClicked"
             android:text="Noir" />
 
