@@ -14,4 +14,6 @@
     <string name="titre_all_zone">Dangerous areas</string>
     <string name="enregistrer_position">Save position</string>
     <string name="titre_liste">my saved areas</string>
+    <string name="zone_dangereuse">"dangerous zone "</string>
+    <string name="mes_zones">my areas</string>
 </resources>

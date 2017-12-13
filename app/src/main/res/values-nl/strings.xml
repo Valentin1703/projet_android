@@ -14,4 +14,6 @@
     <string name="titre_all_zone">Gevaarlijke gebieden</string>
     <string name="enregistrer_position">Positie opslaan</string>
     <string name="titre_liste">mijn opgeslagen gebieden</string>
+    <string name="zone_dangereuse">gevarenzone</string>
+    <string name="mes_zones">mijn gebieden</string>
 </resources>

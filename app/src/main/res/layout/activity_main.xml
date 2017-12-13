@@ -36,7 +36,7 @@
             android:layout_height="88dp"
             android:layout_weight="1"
             android:onClick="clickConnexion"
-            android:text="Connexion" />
+            android:text="@string/connexion" />
 
         <Button
             android:id="@+id/btn_inscription"
@@ -44,7 +44,7 @@
             android:layout_height="88dp"
             android:layout_weight="1"
             android:onClick="clickInscription"
-            android:text="Inscription" />
+            android:text="@string/inscription" />
 
         <Button
             android:id="@+id/btn_liste_zone"
@@ -52,7 +52,7 @@
             android:layout_height="88dp"
             android:layout_weight="1"
             android:onClick="clickAllZones"
-            android:text="Zone dangereuse" />
+            android:text="@String/" />
 
         <Button
             android:id="@+id/btn_mesZones"
