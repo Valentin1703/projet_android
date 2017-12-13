@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/sign_in"
+    android:background="@drawable/route6"
     tools:context="condorcet.projet_android_motard.MainActivity_inscription">
 
     <LinearLayout
@@ -21,7 +21,7 @@
             android:layout_width="65dp"
             android:layout_height="wrap_content"
             android:width="100sp"
-            android:textColor="#000000"
+            android:textColor="#FFFF"
             android:textStyle="bold"
             android:text="@string/mdp" />
 
@@ -30,6 +30,7 @@
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#FFFF"
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPassword">
@@ -52,13 +53,14 @@
             android:layout_width="65dp"
             android:layout_height="wrap_content"
             android:width="100sp"
-            android:textColor="#000000"
+            android:textColor="#FFFF"
             android:textStyle="bold"
             android:text="@string/email" />
 
         <EditText
             android:id="@+id/edemail"
             android:layout_width="wrap_content"
+            android:textColor="#FFFF"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
@@ -78,7 +80,7 @@
         android:text="INSCRIPTION"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textColor="#000000"
+        android:textColor="#FFFF"
         android:textStyle="bold"
         tools:text="@string/inscription" />
 
@@ -95,7 +97,7 @@
             android:layout_width="65dp"
             android:layout_height="wrap_content"
             android:width="100sp"
-            android:textColor="#000000"
+            android:textColor="#FFFF"
             android:textStyle="bold"
             android:text="@string/nom" />
 
@@ -103,6 +105,7 @@
             android:id="@+id/ednom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#FFFF"
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName">
@@ -125,13 +128,14 @@
             android:layout_width="65dp"
             android:layout_height="wrap_content"
             android:width="100sp"
-            android:textColor="#000000"
+            android:textColor="#FFFF"
             android:textStyle="bold"
             android:text="@string/prenom" />
 
         <EditText
             android:id="@+id/edprenom"
             android:layout_width="wrap_content"
+            android:textColor="#FFFF"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
@@ -155,13 +159,14 @@
             android:layout_width="65dp"
             android:layout_height="wrap_content"
             android:width="100sp"
-            android:textColor="#000000"
+            android:textColor="#FFFF"
             android:textStyle="bold"
             android:text="@string/adresse" />
 
         <EditText
             android:id="@+id/edadr"
             android:layout_width="wrap_content"
+            android:textColor="#FFFF"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"

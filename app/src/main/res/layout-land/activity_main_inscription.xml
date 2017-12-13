@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/route6"
     tools:context="condorcet.projet_android_motard.MainActivity_inscription">
 
     <TextView
@@ -13,6 +13,8 @@
         android:layout_height="22dp"
         android:layout_marginStart="244dp"
         android:layout_marginTop="16dp"
+        android:textColor="#FFFF"
+        android:textStyle="bold"
         android:text="INSCRIPTION"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -31,10 +33,13 @@
             android:layout_width="65dp"
             android:layout_height="wrap_content"
             android:width="100sp"
+            android:textColor="#FFFF"
+            android:textStyle="bold"
             android:text="@string/nom" />
 
         <EditText
             android:id="@+id/ednom"
+            android:textColor="#FFFF"
             android:layout_width="149dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -59,6 +64,8 @@
             android:layout_width="65dp"
             android:layout_height="wrap_content"
             android:width="100sp"
+            android:textColor="#FFFF"
+            android:textStyle="bold"
             android:text="@string/adresse" />
 
         <EditText
@@ -67,6 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
+            android:textColor="#FFFF"
             android:inputType="textPostalAddress">
 
 
@@ -84,10 +92,12 @@
 
         <TextView
             android:id="@+id/lbprenom"
-            android:layout_width="65dp"
+            android:layout_width="86dp"
             android:layout_height="wrap_content"
             android:width="100sp"
             android:text="@string/prenom"
+            android:textColor="#FFFF"
+            android:textStyle="bold"
             tools:layout_editor_absoluteX="399dp"
             tools:layout_editor_absoluteY="63dp" />
 
@@ -97,6 +107,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
+            android:textColor="#FFFF"
             android:inputType="textPersonName">
 
 
@@ -117,6 +128,8 @@
             android:layout_width="65dp"
             android:layout_height="wrap_content"
             android:width="100sp"
+            android:textColor="#FFFF"
+            android:textStyle="bold"
             android:text="@string/mdp" />
 
         <EditText
@@ -125,6 +138,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
+            android:textColor="#FFFF"
             android:inputType="textPassword">
 
 
@@ -145,6 +159,8 @@
             android:layout_width="65dp"
             android:layout_height="wrap_content"
             android:width="100sp"
+            android:textColor="#FFFF"
+            android:textStyle="bold"
             android:text="@string/email" />
 
         <EditText
@@ -153,6 +169,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
+            android:textColor="#FFFF"
             android:inputType="textEmailAddress">
 
 

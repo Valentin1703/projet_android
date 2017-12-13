@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/droide"
     tools:context="condorcet.projet_android_motard.MainActivity_connexion">
 
     <EditText
@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="44dp"
+        android:textColor="#00ff00"
         android:layout_weight="1"
         android:ems="10"
         android:inputType="textPassword"
@@ -26,6 +27,7 @@
         android:id="@+id/email_connexion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="#00ff00"
         android:layout_marginStart="40dp"
         android:layout_marginTop="40dp"
         android:layout_weight="1"
@@ -44,6 +46,8 @@
         android:layout_marginStart="108dp"
         android:layout_marginTop="56dp"
         android:text="@string/email"
+        android:textColor="#00ff00"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -54,6 +58,8 @@
         android:layout_marginStart="108dp"
         android:layout_marginTop="56dp"
         android:text="@string/mdp"
+        android:textColor="#00ff00"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_email" />
 
