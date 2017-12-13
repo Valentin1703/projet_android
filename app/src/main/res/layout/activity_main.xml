@@ -52,7 +52,7 @@
             android:layout_height="88dp"
             android:layout_weight="1"
             android:onClick="clickAllZones"
-            android:text="@String/" />
+            android:text="@string/zone_dangereuse" />
 
         <Button
             android:id="@+id/btn_mesZones"
@@ -60,7 +60,7 @@
             android:layout_height="88dp"
             android:layout_weight="1"
             android:onClick="clickMesZones"
-            android:text="Mes zones" />
+            android:text="@string/mes_zones" />
 
     </RadioGroup>
 
