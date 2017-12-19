@@ -12,7 +12,7 @@
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:background="@drawable/round_button"
         android:text="@string/enregistrer_position"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,8 +25,8 @@
 
     <RadioGroup
         android:layout_width="385dp"
-        android:layout_height="192dp"
-        android:layout_marginTop="312dp"
+        android:layout_height="234dp"
+        android:layout_marginTop="264dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -61,6 +61,14 @@
             android:layout_weight="1"
             android:onClick="clickMesZones"
             android:text="@string/mes_zones" />
+
+        <Button
+            android:id="@+id/btn_map"
+            android:layout_width="match_parent"
+            android:layout_height="89dp"
+            android:layout_weight="1"
+            android:onClick="click_map"
+            android:text="@string/title_activity_maps" />
 
     </RadioGroup>
 

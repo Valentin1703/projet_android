@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     Button connexion = null;
     Button enregistrer = null;
     Button mesZones = null;
+    Button btn_map = null;
     Globals g = Globals.getInstance();
     int id = g.getData();
 
@@ -234,6 +235,13 @@ public class MainActivity extends AppCompatActivity {
     {
         Intent y = new Intent(MainActivity.this,MainActivity_allZone.class);
         startActivity(y);
+    }
+
+    public void click_map(View v)
+    {
+        Intent y = new Intent(MainActivity.this,MapsActivity.class);
+        startActivity(y);
+
     }
 
     LocationListener locationListener() {

@@ -135,21 +135,20 @@ public class MainActivity_update_couleur extends AppCompatActivity
 
 
 
-
     /* fonctionne pas */
 
-    public  void OnclickAfficherMap()
+    public  void OnclickAfficherMap(View v)
     {
 
-    Intent i = new Intent(Intent.ACTION_VIEW);
-    i.setData(Uri.parse("geo:"+lati+longi));
 
-    startActivity(i);
-
-
-
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse("geo:"+lati+longi));
+        startActivity(i);
 
     }
+
+
+
 
 
 
