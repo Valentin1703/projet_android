@@ -16,4 +16,5 @@
     <string name="titre_liste">" le mie aree salvate"</string>
     <string name="zone_dangereuse">zona pericolosa</string>
     <string name="mes_zones">le mie aree</string>
+    <string name="carte">mappa</string>
 </resources>

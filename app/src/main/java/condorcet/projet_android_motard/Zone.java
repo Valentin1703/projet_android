@@ -118,7 +118,11 @@ public class Zone {
 
 
 
-        return  "la zone n°" + id_zone +
+        return
+
+
+
+                "la zone n°" + id_zone +
                 " de couleur : " + couleur2 +
                 " à pour latitude : " + pos_gps_lati +
                 " et longitude : " + pos_gps_long;

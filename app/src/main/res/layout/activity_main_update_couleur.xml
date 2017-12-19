@@ -10,23 +10,20 @@
     <TextView
         android:id="@+id/titre_update"
         android:layout_width="118dp"
-        android:layout_height="28dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginStart="132dp"
-        android:layout_marginTop="52dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="44dp"
         android:text="Choisir un couleur"
         android:textColor="#FFFF"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/TextZone"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.041" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_go_map" />
 
     <TextView
         android:id="@+id/TextZone"
         android:layout_width="388dp"
         android:layout_height="40dp"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="24dp"
         android:text="TextView"
         android:textColor="#FFFF"
         android:textStyle="bold"
@@ -126,4 +123,15 @@
         android:text="Enregistrer"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <Button
+        android:id="@+id/btn_go_map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="36dp"
+        android:onClick="OnclickAfficherMap"
+        android:text="@string/carte"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextZone" />
 </android.support.constraint.ConstraintLayout>

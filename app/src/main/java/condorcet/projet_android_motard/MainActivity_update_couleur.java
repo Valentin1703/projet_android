@@ -1,6 +1,7 @@
 package condorcet.projet_android_motard;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -131,5 +132,26 @@ public class MainActivity_update_couleur extends AppCompatActivity
          );
 
     }
+
+
+
+
+    /* fonctionne pas */
+
+    public  void OnclickAfficherMap()
+    {
+
+    Intent i = new Intent(Intent.ACTION_VIEW);
+    i.setData(Uri.parse("geo:"+lati+longi));
+
+    startActivity(i);
+
+
+
+
+    }
+
+
+
 
 }
