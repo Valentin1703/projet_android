@@ -34,4 +34,5 @@ dependencies {
 
     // compile 'com.cuboid:coboidcirclebutton:1.0.3'
     // implementation 'com.cuboid:cuboidcirclebutton:1.0.3'
+    implementation 'com.google.android.gms:play-services-maps:11.6.2'
 }
