@@ -200,7 +200,15 @@ public class MainActivity extends AppCompatActivity {
                     {
 
                       //   Toast.makeText(getApplicationContext(), "veuillez vous connectez", Toast.LENGTH_LONG).show();
-                        Toast.makeText(getApplicationContext(), "impossible d'enregistré 2 fois la même position GPS", Toast.LENGTH_LONG).show();
+                        if(id==0)
+                        {
+                            Toast.makeText(getApplicationContext(), "Vous n'êtes pas connecté", Toast.LENGTH_LONG).show();
+                        }
+                        else
+                        {
+                            Toast.makeText(getApplicationContext(), "impossible d'enregistrer 2 fois la même zone", Toast.LENGTH_LONG).show();
+                        }
+
                         Log.i("ONSTART BOUTON CLICK", " latitude " + zone.getPos_gps_lati() + "longitude  " + zone.getPos_gps_long());
                     }
                 });
