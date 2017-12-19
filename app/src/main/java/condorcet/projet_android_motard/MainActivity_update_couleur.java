@@ -11,6 +11,8 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Locale;
+
 import retrofit.Callback;
 import retrofit.RestAdapter;
 import retrofit.RetrofitError;
@@ -26,8 +28,8 @@ public class MainActivity_update_couleur extends AppCompatActivity
     RadioButton Rjaune;
     RadioButton Rrouge;
     RadioButton Rnoir;
-    Double lati;
-    Double longi;
+    double lati;
+    double longi;
     int id_mot;
     int id_zone=0;
     int new_id_couleur=3;
@@ -135,15 +137,14 @@ public class MainActivity_update_couleur extends AppCompatActivity
 
 
 
-    /* fonctionne pas */
-
     public  void OnclickAfficherMap(View v)
     {
 
 
-        Intent i = new Intent(Intent.ACTION_VIEW);
-        i.setData(Uri.parse("geo:"+lati+longi));
-        startActivity(i);
+        String uri = String.format(Locale.ENGLISH, "geo:%f,%f", lati, longi);
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+        startActivity(intent);
+
 
     }
 
