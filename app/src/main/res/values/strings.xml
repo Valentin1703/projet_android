@@ -15,7 +15,7 @@
     <string name="titre_all_zone">Zones dangereuse</string>
     <string name="title_activity_login">Sign in</string>
     <string name="titre_liste">mes zones enregistrées</string>
-    <string name="zone_dangereuse">Zone_dangereuse</string>
+    <string name="zone_dangereuse">Zones dangereuses</string>
     <string name="mes_zones">Mes zones</string>
     <string name="carte">Carte</string>
     <string name="title_activity_maps">Map</string>

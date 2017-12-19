@@ -82,14 +82,14 @@ public class MainActivity extends AppCompatActivity {
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
 
-        if ( !locationManager.isProviderEnabled( LocationManager.GPS_PROVIDER ) )
-        {
-            Toast.makeText(getApplicationContext(),"Veuillez activé votre GPS", Toast.LENGTH_LONG).show();
-            enregistrer.setVisibility(View.INVISIBLE);
-        }
-        else
-        {
-            enregistrer.setVisibility(View.VISIBLE);
+            if ( !locationManager.isProviderEnabled( LocationManager.GPS_PROVIDER ) )
+            {
+                Toast.makeText(getApplicationContext(),"Veuillez activé votre GPS", Toast.LENGTH_LONG).show();
+                enregistrer.setVisibility(View.INVISIBLE);
+            }
+            else
+            {
+                enregistrer.setVisibility(View.VISIBLE);
         }
 
 
@@ -120,13 +120,14 @@ public class MainActivity extends AppCompatActivity {
                             {
                                 e1.printStackTrace();
                             }
-                            Log.d("Network", "Network Enabled");
+
                             if (locationManager != null)
                             {
                                 try
                                 {
                                     location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-                                } catch (SecurityException e1) {
+                                } catch (SecurityException e1)
+                                {
                                     e1.printStackTrace();
                                 }
                                 if (location != null)
@@ -150,14 +151,15 @@ public class MainActivity extends AppCompatActivity {
                                 } catch (SecurityException e1) {
                                     e1.printStackTrace();
                                 }
-                                Log.d("GPS", "GPS Enabled");
+
                                 if (locationManager != null)
                                 {
                                     try
                                     {
                                         location = locationManager
                                                 .getLastKnownLocation(LocationManager.GPS_PROVIDER);
-                                    } catch (SecurityException e1) {
+                                    } catch (SecurityException e1)
+                                    {
                                         e1.printStackTrace();
                                     }
                                     if (location != null)
@@ -196,9 +198,9 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void failure(RetrofitError error)
                     {
-                        String err = error.getMessage();
+
                       //   Toast.makeText(getApplicationContext(), "veuillez vous connectez", Toast.LENGTH_LONG).show();
-                        Toast.makeText(getApplicationContext(), err, Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "impossible d'enregistré 2 fois la même position GPS", Toast.LENGTH_LONG).show();
                         Log.i("ONSTART BOUTON CLICK", " latitude " + zone.getPos_gps_lati() + "longitude  " + zone.getPos_gps_long());
                     }
                 });
@@ -222,11 +224,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickMesZones(View v)
     {
-
-
-
-
-
         Intent y = new Intent(MainActivity.this, MainActivity_mes_zones.class);
         startActivity(y);
     }
@@ -237,12 +234,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(y);
     }
 
-    public void click_map(View v)
-    {
-        Intent y = new Intent(MainActivity.this,MapsActivity.class);
-        startActivity(y);
 
-    }
 
     LocationListener locationListener() {
         return new LocationListener() {

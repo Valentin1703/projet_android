@@ -136,22 +136,11 @@ public class MainActivity_update_couleur extends AppCompatActivity
     }
 
 
-
     public  void OnclickAfficherMap(View v)
     {
-
-
         String uri = String.format(Locale.ENGLISH, "geo:%f,%f", lati, longi);
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
         startActivity(intent);
-
-
     }
-
-
-
-
-
-
 
 }

@@ -45,7 +45,8 @@ public class MainActivity_mes_zones extends AppCompatActivity {
             public void success(ListZone listZone, Response response)
             {
 
-                if(listZone.getItems().isEmpty()){
+                if(listZone.getItems().isEmpty())
+                {
                     Toast.makeText(getApplicationContext(), "Vous n'avez aucune zone", Toast.LENGTH_LONG).show();
                 }
                 else
@@ -55,6 +56,7 @@ public class MainActivity_mes_zones extends AppCompatActivity {
                     mesListe_Zone.setAdapter(adapter);
 
                 }
+
 
 
                 mesListe_Zone.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -70,10 +72,8 @@ public class MainActivity_mes_zones extends AppCompatActivity {
                         i.putExtra("MainActivity_mes_zones" ,zone.toString());
                         //envoie juste l'id dans un toString aussi
                         i.putExtra("MainActivity_mes_zones2" ,zone.getId_zone());
-
                         //envoie de la latiude
                         i.putExtra("MainActivity_mes_zones3" ,zone.getPos_gps_lati());
-
                         //envoie de la longitude
                         i.putExtra("MainActivity_mes_zones4" ,zone.getPos_gps_long());
 

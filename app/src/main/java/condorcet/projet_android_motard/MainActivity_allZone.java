@@ -55,23 +55,7 @@ public class MainActivity_allZone extends AppCompatActivity {
                     List_Allzone.setAdapter(adapter);
 
                 }
-                List_Allzone.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-                    @Override
-                    public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-
-                        Zone zone = (Zone) arg0.getItemAtPosition(arg2);
-
-                        Intent i = new Intent(MainActivity_allZone.this, MainActivity_update_couleur.class);
-
-                        i.putExtra("MainActivity_allZone" ,zone.toString());
-
-                        //startActivity(i);
-
-                    }
-
-
-                });
 
             }
 
