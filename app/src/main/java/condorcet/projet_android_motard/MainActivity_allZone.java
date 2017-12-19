@@ -67,12 +67,9 @@ public class MainActivity_allZone extends AppCompatActivity {
                         Zone zone = (Zone) arg0.getItemAtPosition(arg2);
                         double longi= zone.getPos_gps_lati();
                         double lati = zone.getPos_gps_long();
-                        Toast.makeText(getApplicationContext(), ""+lati, Toast.LENGTH_LONG).show();
-                        Toast.makeText(getApplicationContext(), " "+longi, Toast.LENGTH_LONG).show();
                         String uri = String.format(Locale.ENGLISH, "geo:%f,%f", lati, longi);
                         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
                         startActivity(intent);
-
 
 
                     }
