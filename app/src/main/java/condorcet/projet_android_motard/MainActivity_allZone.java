@@ -1,6 +1,7 @@
 package condorcet.projet_android_motard;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +12,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.List;
+import java.util.Locale;
 
 import retrofit.Callback;
 import retrofit.RestAdapter;
@@ -55,6 +57,41 @@ public class MainActivity_allZone extends AppCompatActivity {
                     List_Allzone.setAdapter(adapter);
 
                 }
+
+
+                List_Allzone.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+                    @Override
+                    public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+
+                        Zone zone = (Zone) arg0.getItemAtPosition(arg2);
+                        double longi= zone.getPos_gps_lati();
+                        double lati = zone.getPos_gps_long();
+                        Toast.makeText(getApplicationContext(), ""+lati, Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), " "+longi, Toast.LENGTH_LONG).show();
+                        String uri = String.format(Locale.ENGLISH, "geo:%f,%f", lati, longi);
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                        startActivity(intent);
+
+
+
+                    }
+
+
+                });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
             }
